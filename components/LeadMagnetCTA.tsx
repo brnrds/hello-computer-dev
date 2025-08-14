@@ -117,7 +117,7 @@ export default function LeadMagnetCTA() {
                 {/* Email Form */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-on-light-muted" />
                     <Input
                       type="email"
                       placeholder="Enter your business email"
@@ -147,7 +147,7 @@ export default function LeadMagnetCTA() {
                   </Button>
                 </form>
 
-                <p className="text-xs text-muted-foreground mt-4 text-center">
+                <p className="text-xs text-on-light-muted mt-4 text-center">
                   No spam. Unsubscribe anytime. We respect your privacy.
                 </p>
               </div>
@@ -182,11 +182,11 @@ export default function LeadMagnetCTA() {
                 </div>
 
                 {/* Terminal Output */}
-                <div className="mt-8 bg-retro-dark border border-neon-cyan rounded-lg p-4">
+                <div className="mt-8 bg-dark border border-accent-primary-dark rounded-lg p-4">
                   <div className="terminal-text text-xs">
-                    <div className="text-neon-green mb-1">$ generate-growth --guide=ai-marketing</div>
-                    <div className="text-retro-light/80">Initializing transformation...</div>
-                    <div className="text-neon-cyan mt-1">Ready for download ▶</div>
+                    <div className="text-accent-tertiary-dark mb-1">$ generate-growth --guide=ai-marketing</div>
+                    <div className="text-on-dark-muted">Initializing transformation...</div>
+                    <div className="text-accent-primary-dark-glow mt-1">Ready for download ▶</div>
                   </div>
                 </div>
               </div>
