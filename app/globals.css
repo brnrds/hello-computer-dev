@@ -53,17 +53,29 @@
   --retro-gray: #1a1a1a;
   --retro-gray-light: #2a2a2a;
   
-  /* Neon Accent Colors */
-  --neon-cyan: #00ffff; /* Keep for dark theme */
-  --neon-pink: #ff00ff;
-  --neon-green: #00ff00;
-  --neon-purple: #8b5cf6;
-  --neon-blue: #3b82f6;
+  /* Semantic Color System for Retro-Tech Theme */
   
-  /* Light theme friendly colors */
-  --primary-blue: #1e40af;
-  --primary-indigo: #4338ca;
-  --primary-slate: #334155;
+  /* Light Background Colors (high contrast, readable) */
+  --accent-primary: #1e40af;        /* Dark blue for light backgrounds */
+  --accent-secondary: #dc2626;      /* Red for light backgrounds */
+  --accent-tertiary: #059669;       /* Green for light backgrounds */
+  
+  /* Dark Background Colors (neon, glowing) */
+  --accent-primary-dark: #00ffff;   /* Cyan for dark backgrounds */
+  --accent-secondary-dark: #ff00ff; /* Pink for dark backgrounds */ 
+  --accent-tertiary-dark: #00ff41;  /* Green for dark backgrounds */
+  
+  /* Text Colors */
+  --text-on-light: #0f172a;         /* Dark text on light backgrounds */
+  --text-on-light-muted: #64748b;   /* Muted text on light backgrounds */
+  --text-on-dark: #f8fafc;          /* Light text on dark backgrounds */
+  --text-on-dark-muted: #cbd5e1;    /* Muted text on dark backgrounds */
+  
+  /* Background Colors */
+  --bg-light: #ffffff;
+  --bg-light-subtle: #f8fafc;
+  --bg-dark: #0a0a0a;
+  --bg-dark-subtle: #1a1a1a;
   
   /* Terminal Colors */
   --terminal-green: #00ff41;
@@ -170,22 +182,116 @@
 
 /* Retro-Tech Utility Classes */
 @layer utilities {
-  /* Glow effects - for dark backgrounds only */
-  .neon-glow {
+  /* Glow effects - context aware */
+  .glow-on-dark {
     text-shadow: 0 0 3px currentColor, 0 0 6px currentColor;
   }
   
-  .neon-glow-subtle {
+  .glow-on-dark-subtle {
     text-shadow: 0 0 2px currentColor;
   }
   
-  /* Dark background specific classes */
-  .text-neon-cyan-dark {
-    color: var(--neon-cyan);
+  /* Combined classes for common patterns */
+  .text-accent-primary-dark-glow {
+    color: var(--accent-primary-dark);
+    text-shadow: 0 0 2px var(--accent-primary-dark);
   }
   
-  .border-neon-cyan-dark {
-    border-color: var(--neon-cyan);
+  .text-accent-secondary-dark-glow {
+    color: var(--accent-secondary-dark);
+    text-shadow: 0 0 2px var(--accent-secondary-dark);
+  }
+  
+  .text-accent-tertiary-dark-glow {
+    color: var(--accent-tertiary-dark);
+    text-shadow: 0 0 2px var(--accent-tertiary-dark);
+  }
+  
+  /* Semantic Utility Classes */
+  
+  /* Light Background Text */
+  .text-accent-primary {
+    color: var(--accent-primary);
+  }
+  
+  .text-accent-secondary {
+    color: var(--accent-secondary);
+  }
+  
+  .text-accent-tertiary {
+    color: var(--accent-tertiary);
+  }
+  
+  .text-on-light {
+    color: var(--text-on-light);
+  }
+  
+  .text-on-light-muted {
+    color: var(--text-on-light-muted);
+  }
+  
+  /* Dark Background Text */
+  .text-accent-primary-dark {
+    color: var(--accent-primary-dark);
+  }
+  
+  .text-accent-secondary-dark {
+    color: var(--accent-secondary-dark);
+  }
+  
+  .text-accent-tertiary-dark {
+    color: var(--accent-tertiary-dark);
+  }
+  
+  .text-on-dark {
+    color: var(--text-on-dark);
+  }
+  
+  .text-on-dark-muted {
+    color: var(--text-on-dark-muted);
+  }
+  
+  /* Borders */
+  .border-accent-primary {
+    border-color: var(--accent-primary);
+  }
+  
+  .border-accent-primary-dark {
+    border-color: var(--accent-primary-dark);
+  }
+  
+  .border-accent-secondary-dark {
+    border-color: var(--accent-secondary-dark);
+  }
+  
+  .border-accent-tertiary-dark {
+    border-color: var(--accent-tertiary-dark);
+  }
+  
+  /* Backgrounds */
+  .bg-light {
+    background-color: var(--bg-light);
+  }
+  
+  .bg-light-subtle {
+    background-color: var(--bg-light-subtle);
+  }
+  
+  .bg-dark {
+    background-color: var(--bg-dark);
+  }
+  
+  .bg-dark-subtle {
+    background-color: var(--bg-dark-subtle);
+  }
+  
+  /* Accent Backgrounds with Opacity */
+  .bg-accent-primary\/10 {
+    background-color: rgb(from var(--accent-primary) r g b / 0.1);
+  }
+  
+  .bg-accent-primary-dark\/10 {
+    background-color: rgb(from var(--accent-primary-dark) r g b / 0.1);
   }
   
   .neon-border {

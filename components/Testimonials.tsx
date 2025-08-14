@@ -26,10 +26,10 @@ export default function Testimonials() {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-high-contrast mb-6 leading-tight">
-            What Our <span className="text-neon-green font-semibold">Clients</span> Say
+          <h2 className="text-3xl sm:text-4xl font-bold text-on-light mb-6 leading-tight">
+            What Our <span className="text-accent-tertiary font-semibold">Clients</span> Say
           </h2>
-          <p className="text-xl text-medium-contrast max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-on-light-muted max-w-2xl mx-auto leading-relaxed">
             Real results from real businesses who've transformed their operations with AI.
           </p>
         </div>
@@ -71,23 +71,23 @@ export default function Testimonials() {
         </div>
 
         {/* Terminal-style stats */}
-        <div className="mt-16 bg-retro-dark border border-neon-pink rounded-xl p-10">
+        <div className="mt-16 bg-dark border border-accent-secondary-dark rounded-xl p-10">
           <div className="text-center">
-            <div className="terminal-text text-neon-green text-sm mb-6">
+            <div className="terminal-text text-accent-tertiary-dark text-sm mb-6">
               $ analytics --client-results --summary
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-white">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl font-bold text-neon-cyan-dark neon-glow-subtle mb-3">50+</div>
-                <div className="text-sm text-gray-200 terminal-text font-medium">Businesses Transformed</div>
+                <div className="text-4xl font-bold text-accent-primary-dark-glow mb-3">50+</div>
+                <div className="text-sm text-on-dark-muted terminal-text font-medium">Businesses Transformed</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-neon-pink mb-3">£2.4M+</div>
-                <div className="text-sm text-gray-200 terminal-text font-medium">Revenue Generated</div>
+                <div className="text-4xl font-bold text-accent-secondary-dark-glow mb-3">£2.4M+</div>
+                <div className="text-sm text-on-dark-muted terminal-text font-medium">Revenue Generated</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-neon-green mb-3">98%</div>
-                <div className="text-sm text-gray-200 terminal-text font-medium">Client Satisfaction</div>
+                <div className="text-4xl font-bold text-accent-tertiary-dark-glow mb-3">98%</div>
+                <div className="text-sm text-on-dark-muted terminal-text font-medium">Client Satisfaction</div>
               </div>
             </div>
           </div>

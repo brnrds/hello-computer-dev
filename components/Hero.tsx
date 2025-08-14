@@ -55,18 +55,18 @@ export default function Hero({
           </div>
         )}
 
-        <h1 className={`font-bold text-foreground mb-6 leading-tight ${
+        <h1 className={`font-bold text-on-light mb-6 leading-tight ${
           variant === "home" 
             ? "text-4xl sm:text-5xl lg:text-7xl" 
             : "text-3xl sm:text-4xl lg:text-5xl"
         }`}>
           {title.split(" ").map((word, index) => {
-            // Highlight specific words with readable colors
+            // Highlight specific words with accent colors
             const isHighlight = ["AI", "Computer", "Growth", "Creative", "Technical", "Integration"].includes(word);
             return (
               <span
                 key={index}
-                className={isHighlight ? "text-primary-blue font-semibold" : ""}
+                className={isHighlight ? "text-accent-primary font-semibold" : ""}
               >
                 {word}{" "}
               </span>
@@ -75,7 +75,7 @@ export default function Hero({
         </h1>
 
         {description && (
-          <p className={`text-medium-contrast mb-8 max-w-3xl mx-auto leading-relaxed ${
+          <p className={`text-on-light-muted mb-8 max-w-3xl mx-auto leading-relaxed ${
             variant === "home" ? "text-lg sm:text-xl" : "text-lg"
           }`}>
             {description}
@@ -104,16 +104,16 @@ export default function Hero({
         {variant === "home" && (
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-blue mb-2">340%</div>
-              <div className="text-sm text-medium-contrast terminal-text font-medium">Lead Growth</div>
+              <div className="text-3xl font-bold text-accent-primary mb-2">340%</div>
+              <div className="text-sm text-on-light-muted terminal-text font-medium">Lead Growth</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-neon-green mb-2">10x</div>
-              <div className="text-sm text-medium-contrast terminal-text font-medium">Faster Content</div>
+              <div className="text-3xl font-bold text-accent-tertiary mb-2">10x</div>
+              <div className="text-sm text-on-light-muted terminal-text font-medium">Faster Content</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-neon-pink mb-2">75%</div>
-              <div className="text-sm text-medium-contrast terminal-text font-medium">Time Saved</div>
+              <div className="text-3xl font-bold text-accent-secondary mb-2">75%</div>
+              <div className="text-sm text-on-light-muted terminal-text font-medium">Time Saved</div>
             </div>
           </div>
         )}
@@ -121,10 +121,10 @@ export default function Hero({
         {/* Terminal-style command hint for home variant */}
         {variant === "home" && (
           <div className="mt-12 max-w-md mx-auto">
-            <div className="bg-retro-dark border border-neon-cyan-dark rounded-lg p-4 terminal-text text-left">
-              <div className="text-neon-green text-xs mb-2">$ hello-computer --status</div>
-              <div className="text-terminal-green text-sm">
-                <span className="text-neon-cyan-dark neon-glow-subtle">Ready to transform your business</span>
+            <div className="bg-dark border border-accent-primary-dark rounded-lg p-4 terminal-text text-left">
+              <div className="text-accent-tertiary-dark text-xs mb-2">$ hello-computer --status</div>
+              <div className="text-accent-tertiary-dark text-sm">
+                <span className="text-accent-primary-dark-glow">Ready to transform your business</span>
                 <span className="animate-pulse">|</span>
               </div>
             </div>
