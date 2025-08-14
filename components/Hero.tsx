@@ -55,18 +55,18 @@ export default function Hero({
           </div>
         )}
 
-        <h1 className={`font-bold text-foreground mb-6 ${
+        <h1 className={`font-bold text-foreground mb-6 leading-tight ${
           variant === "home" 
             ? "text-4xl sm:text-5xl lg:text-7xl" 
             : "text-3xl sm:text-4xl lg:text-5xl"
         }`}>
           {title.split(" ").map((word, index) => {
-            // Highlight specific words with neon effects
+            // Highlight specific words with subtle neon effects
             const isHighlight = ["AI", "Computer", "Growth", "Creative", "Technical", "Integration"].includes(word);
             return (
               <span
                 key={index}
-                className={isHighlight ? "text-neon-cyan neon-glow" : ""}
+                className={isHighlight ? "text-neon-cyan neon-glow-subtle font-semibold" : ""}
               >
                 {word}{" "}
               </span>
@@ -75,7 +75,7 @@ export default function Hero({
         </h1>
 
         {description && (
-          <p className={`text-muted-foreground mb-8 max-w-3xl mx-auto ${
+          <p className={`text-medium-contrast mb-8 max-w-3xl mx-auto leading-relaxed ${
             variant === "home" ? "text-lg sm:text-xl" : "text-lg"
           }`}>
             {description}
@@ -104,16 +104,16 @@ export default function Hero({
         {variant === "home" && (
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-2xl font-bold text-neon-cyan neon-glow mb-1">340%</div>
-              <div className="text-sm text-muted-foreground terminal-text">Lead Growth</div>
+              <div className="text-3xl font-bold text-neon-cyan neon-glow-subtle mb-2">340%</div>
+              <div className="text-sm text-medium-contrast terminal-text font-medium">Lead Growth</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-neon-green neon-glow mb-1">10x</div>
-              <div className="text-sm text-muted-foreground terminal-text">Faster Content</div>
+              <div className="text-3xl font-bold text-neon-green neon-glow-subtle mb-2">10x</div>
+              <div className="text-sm text-medium-contrast terminal-text font-medium">Faster Content</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-neon-pink neon-glow mb-1">75%</div>
-              <div className="text-sm text-muted-foreground terminal-text">Time Saved</div>
+              <div className="text-3xl font-bold text-neon-pink neon-glow-subtle mb-2">75%</div>
+              <div className="text-sm text-medium-contrast terminal-text font-medium">Time Saved</div>
             </div>
           </div>
         )}

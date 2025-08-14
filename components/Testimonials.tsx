@@ -20,16 +20,16 @@ export default function Testimonials() {
   }, [featuredTestimonials.length]);
 
   return (
-    <section className="py-24 relative bg-gradient-to-b from-muted/20 to-background">
+    <section className="section-spacing relative bg-gradient-to-b from-muted/20 to-background">
       {/* Background Pattern */}
       <div className="absolute inset-0 retro-grid opacity-5"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            What Our <span className="text-neon-green neon-glow">Clients</span> Say
+          <h2 className="text-3xl sm:text-4xl font-bold text-high-contrast mb-6 leading-tight">
+            What Our <span className="text-neon-green neon-glow-subtle">Clients</span> Say
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-medium-contrast max-w-2xl mx-auto leading-relaxed">
             Real results from real businesses who've transformed their operations with AI.
           </p>
         </div>
@@ -71,23 +71,23 @@ export default function Testimonials() {
         </div>
 
         {/* Terminal-style stats */}
-        <div className="mt-16 bg-retro-dark border border-neon-pink rounded-xl p-8">
+        <div className="mt-16 bg-retro-dark border border-neon-pink rounded-xl p-10">
           <div className="text-center">
-            <div className="terminal-text text-neon-green text-sm mb-4">
+            <div className="terminal-text text-neon-green text-sm mb-6">
               $ analytics --client-results --summary
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-retro-light">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-retro-light">
               <div>
-                <div className="text-3xl font-bold text-neon-cyan neon-glow mb-2">50+</div>
-                <div className="text-sm text-retro-light/80 terminal-text">Businesses Transformed</div>
+                <div className="text-4xl font-bold text-neon-cyan neon-glow-subtle mb-3">50+</div>
+                <div className="text-sm text-retro-light/90 terminal-text font-medium">Businesses Transformed</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-neon-pink neon-glow mb-2">£2.4M+</div>
-                <div className="text-sm text-retro-light/80 terminal-text">Revenue Generated</div>
+                <div className="text-4xl font-bold text-neon-pink neon-glow-subtle mb-3">£2.4M+</div>
+                <div className="text-sm text-retro-light/90 terminal-text font-medium">Revenue Generated</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-neon-green neon-glow mb-2">98%</div>
-                <div className="text-sm text-retro-light/80 terminal-text">Client Satisfaction</div>
+                <div className="text-4xl font-bold text-neon-green neon-glow-subtle mb-3">98%</div>
+                <div className="text-sm text-retro-light/90 terminal-text font-medium">Client Satisfaction</div>
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
           <svg className={`w-8 h-8 ${color.text} mb-4 opacity-60`} fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
           </svg>
-          <blockquote className="text-foreground text-lg leading-relaxed mb-4">
+          <blockquote className="text-high-contrast text-lg leading-relaxed mb-6">
             "{testimonial.quote}"
           </blockquote>
         </div>
@@ -150,10 +150,10 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
             <div className={`font-semibold ${color.text}`}>
               {testimonial.name}
             </div>
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm text-medium-contrast">
               {testimonial.position}, {testimonial.company}
             </div>
-            <div className="text-xs text-muted-foreground terminal-text">
+            <div className="text-xs text-medium-contrast terminal-text">
               {testimonial.service}
             </div>
           </div>

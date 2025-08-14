@@ -30,7 +30,7 @@ export default function Navbar() {
               <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm terminal-text">HC</span>
               </div>
-              <span className="text-xl font-bold text-foreground glow-hover">
+              <span className="text-xl font-semibold text-high-contrast glow-hover">
                 Hello Computer
               </span>
             </Link>

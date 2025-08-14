@@ -33,16 +33,16 @@ const serviceColors = {
 
 export default function ServicesGrid() {
   return (
-    <section className="py-24 relative bg-gradient-to-b from-background to-muted/20">
+    <section className="section-spacing relative bg-gradient-to-b from-background to-muted/20">
       {/* Background Pattern */}
       <div className="absolute inset-0 retro-grid opacity-5"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Our <span className="text-neon-pink neon-glow">AI-Powered</span> Services
+          <h2 className="text-3xl sm:text-4xl font-bold text-high-contrast mb-6 leading-tight">
+            Our <span className="text-neon-pink neon-glow-subtle">AI-Powered</span> Services
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-medium-contrast max-w-2xl mx-auto leading-relaxed">
             Complete solutions that combine artificial intelligence with human expertise to drive real business results.
           </p>
         </div>
@@ -63,29 +63,29 @@ export default function ServicesGrid() {
                     {icon}
                   </div>
                   
-                  <CardTitle className={`text-2xl font-bold ${colors.text} neon-glow`}>
+                  <CardTitle className={`text-2xl font-semibold ${colors.text} neon-glow-subtle`}>
                     {service.title}
                   </CardTitle>
                   
-                  <p className={`${colors.text} font-medium`}>
+                  <p className={`${colors.text} font-medium text-base`}>
                     {service.subtitle}
                   </p>
                 </CardHeader>
 
                 <CardContent className="space-y-6">
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-medium-contrast leading-relaxed content-spacing">
                     {service.description}
                   </p>
 
                   {/* Key Features */}
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-foreground text-sm terminal-text">
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-high-contrast text-sm terminal-text">
                       Key Features:
                     </h4>
-                    <ul className="space-y-1">
+                    <ul className="space-y-2">
                       {service.features.slice(0, 3).map((feature, featureIndex) => (
-                        <li key={featureIndex} className="text-sm text-muted-foreground flex items-start">
-                          <span className={`${colors.text} mr-2 flex-shrink-0`}>▸</span>
+                        <li key={featureIndex} className="text-sm text-medium-contrast flex items-start leading-relaxed">
+                          <span className={`${colors.text} mr-2 flex-shrink-0 mt-0.5`}>▸</span>
                           {feature}
                         </li>
                       ))}
@@ -109,25 +109,25 @@ export default function ServicesGrid() {
         </div>
 
         {/* Bottom Section - Process Overview */}
-        <div className="bg-retro-dark border border-neon-cyan rounded-xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-neon-cyan neon-glow mb-4">
+        <div className="bg-retro-dark border border-neon-cyan rounded-xl p-10 text-center">
+          <h3 className="text-2xl font-semibold text-neon-cyan neon-glow-subtle mb-8">
             Our Process
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-retro-light">
-            <div className="space-y-2">
-              <div className="text-3xl">🎯</div>
-              <h4 className="font-semibold text-neon-green terminal-text">1. Analyze</h4>
-              <p className="text-sm text-retro-light/80">We audit your current setup and identify opportunities</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-retro-light">
+            <div className="space-y-3">
+              <div className="text-4xl mb-2">🎯</div>
+              <h4 className="font-semibold text-neon-green terminal-text text-base">1. Analyze</h4>
+              <p className="text-sm text-retro-light/90 leading-relaxed">We audit your current setup and identify opportunities</p>
             </div>
-            <div className="space-y-2">
-              <div className="text-3xl">🔧</div>
-              <h4 className="font-semibold text-neon-pink terminal-text">2. Build</h4>
-              <p className="text-sm text-retro-light/80">Custom AI solutions tailored to your business needs</p>
+            <div className="space-y-3">
+              <div className="text-4xl mb-2">🔧</div>
+              <h4 className="font-semibold text-neon-pink terminal-text text-base">2. Build</h4>
+              <p className="text-sm text-retro-light/90 leading-relaxed">Custom AI solutions tailored to your business needs</p>
             </div>
-            <div className="space-y-2">
-              <div className="text-3xl">📊</div>
-              <h4 className="font-semibold text-terminal-amber terminal-text">3. Optimize</h4>
-              <p className="text-sm text-retro-light/80">Continuous improvement based on real performance data</p>
+            <div className="space-y-3">
+              <div className="text-4xl mb-2">📊</div>
+              <h4 className="font-semibold text-terminal-amber terminal-text text-base">3. Optimize</h4>
+              <p className="text-sm text-retro-light/90 leading-relaxed">Continuous improvement based on real performance data</p>
             </div>
           </div>
         </div>

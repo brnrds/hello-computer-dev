@@ -48,16 +48,16 @@ const colorClasses = {
 
 export default function USPSection() {
   return (
-    <section className="py-24 relative">
+    <section className="section-spacing relative">
       {/* Background Elements */}
       <div className="absolute inset-0 retro-grid opacity-5"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Why Choose <span className="text-neon-cyan neon-glow">Hello Computer</span>?
+          <h2 className="text-3xl sm:text-4xl font-bold text-high-contrast mb-6 leading-tight">
+            Why Choose <span className="text-neon-cyan neon-glow-subtle">Hello Computer</span>?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-medium-contrast max-w-2xl mx-auto leading-relaxed">
             We bridge the gap between AI potential and business reality with solutions that actually work.
           </p>
         </div>
@@ -77,12 +77,12 @@ export default function USPSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className={`text-xl font-bold mb-4 ${colors.text} neon-glow`}>
+                  <h3 className={`text-xl font-semibold mb-4 ${colors.text} neon-glow-subtle`}>
                     {usp.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-medium-contrast leading-relaxed content-spacing">
                     {usp.description}
                   </p>
 
@@ -96,12 +96,12 @@ export default function USPSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-retro-dark border border-neon-cyan rounded-lg p-6 max-w-2xl mx-auto">
-            <div className="terminal-text text-neon-green text-sm mb-2">
+          <div className="bg-retro-dark border border-neon-cyan rounded-lg p-8 max-w-3xl mx-auto">
+            <div className="terminal-text text-neon-green text-sm mb-3">
               $ deploy --business-transformation
             </div>
-            <p className="text-retro-light text-lg">
-              Ready to see what <span className="text-neon-cyan neon-glow">AI + human expertise</span> can do for your business?
+            <p className="text-retro-light text-lg leading-relaxed">
+              Ready to see what <span className="text-neon-cyan neon-glow-subtle font-medium">AI + human expertise</span> can do for your business?
             </p>
           </div>
         </div>
