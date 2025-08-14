@@ -93,7 +93,7 @@ export default function ServicesGrid() {
                   </div>
 
                   {/* CTA Button */}
-                  <Button asChild className={`w-full ${colors.border} ${colors.text} hover:bg-background ${colors.hover} transition-colors`}>
+                  <Button asChild variant="outline" className="w-full">
                     <Link href={`/services/${service.slug}`} className="flex items-center justify-center">
                       Learn More 
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

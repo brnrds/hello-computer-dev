@@ -92,7 +92,7 @@ export default function Hero({
           </Button>
 
           {secondaryCTA && (
-            <Button asChild variant="outline" size="lg" className="border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-background">
+            <Button asChild variant="outline" size="lg">
               <Link href={secondaryCTA.href}>
                 {secondaryCTA.text}
               </Link>
