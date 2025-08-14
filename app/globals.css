@@ -1,26 +1,228 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  
+  /* Retro-Tech Theme Colors */
+  --retro-dark: #0a0a0a;
+  --retro-darker: #050505;
+  --retro-light: #f8fafc;
+  --retro-gray: #1a1a1a;
+  --retro-gray-light: #2a2a2a;
+  
+  /* Neon Accent Colors */
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff00ff;
+  --neon-green: #00ff00;
+  --neon-purple: #8b5cf6;
+  --neon-blue: #3b82f6;
+  
+  /* Terminal Colors */
+  --terminal-green: #00ff41;
+  --terminal-amber: #ffb000;
+  --terminal-red: #ff073a;
+  
+  /* Main Theme Variables */
+  --background: oklch(0.98 0.002 264.052);
+  --foreground: oklch(0.15 0.007 272.314);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.007 272.314);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.007 272.314);
+  --primary: oklch(0.55 0.207 262.122);
+  --primary-foreground: oklch(0.98 0.002 264.052);
+  --secondary: oklch(0.96 0.002 264.052);
+  --secondary-foreground: oklch(0.25 0.007 272.314);
+  --muted: oklch(0.96 0.002 264.052);
+  --muted-foreground: oklch(0.45 0.007 272.314);
+  --accent: oklch(0.55 0.207 180);
+  --accent-foreground: oklch(0.98 0.002 264.052);
+  --destructive: oklch(0.62 0.257 29.233);
+  --border: oklch(0.92 0.002 264.052);
+  --input: oklch(0.92 0.002 264.052);
+  --ring: oklch(0.55 0.207 262.122);
+  --chart-1: oklch(0.55 0.207 262.122);
+  --chart-2: oklch(0.55 0.207 180);
+  --chart-3: oklch(0.62 0.185 120);
+  --chart-4: oklch(0.75 0.207 60);
+  --chart-5: oklch(0.65 0.207 300);
+  --sidebar: oklch(0.98 0.002 264.052);
+  --sidebar-foreground: oklch(0.15 0.007 272.314);
+  --sidebar-primary: oklch(0.55 0.207 262.122);
+  --sidebar-primary-foreground: oklch(0.98 0.002 264.052);
+  --sidebar-accent: oklch(0.96 0.002 264.052);
+  --sidebar-accent-foreground: oklch(0.25 0.007 272.314);
+  --sidebar-border: oklch(0.92 0.002 264.052);
+  --sidebar-ring: oklch(0.55 0.207 262.122);
+}
+
+.dark {
+  /* Dark Retro-Tech Theme */
+  --background: oklch(0.06 0.002 264.052);
+  --foreground: oklch(0.85 0.207 180);
+  --card: oklch(0.1 0.002 264.052);
+  --card-foreground: oklch(0.85 0.207 180);
+  --popover: oklch(0.1 0.002 264.052);
+  --popover-foreground: oklch(0.85 0.207 180);
+  --primary: oklch(0.75 0.207 180);
+  --primary-foreground: oklch(0.06 0.002 264.052);
+  --secondary: oklch(0.15 0.002 264.052);
+  --secondary-foreground: oklch(0.85 0.207 180);
+  --muted: oklch(0.15 0.002 264.052);
+  --muted-foreground: oklch(0.55 0.207 180);
+  --accent: oklch(0.75 0.207 262.122);
+  --accent-foreground: oklch(0.06 0.002 264.052);
+  --destructive: oklch(0.65 0.257 29.233);
+  --border: oklch(0.2 0.002 264.052);
+  --input: oklch(0.2 0.002 264.052);
+  --ring: oklch(0.75 0.207 180);
+  --chart-1: oklch(0.75 0.207 180);
+  --chart-2: oklch(0.75 0.207 262.122);
+  --chart-3: oklch(0.62 0.185 120);
+  --chart-4: oklch(0.75 0.207 300);
+  --chart-5: oklch(0.65 0.207 60);
+  --sidebar: oklch(0.1 0.002 264.052);
+  --sidebar-foreground: oklch(0.85 0.207 180);
+  --sidebar-primary: oklch(0.75 0.207 180);
+  --sidebar-primary-foreground: oklch(0.06 0.002 264.052);
+  --sidebar-accent: oklch(0.15 0.002 264.052);
+  --sidebar-accent-foreground: oklch(0.85 0.207 180);
+  --sidebar-border: oklch(0.2 0.002 264.052);
+  --sidebar-ring: oklch(0.75 0.207 180);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Retro-Tech Utility Classes */
+@layer utilities {
+  .neon-glow {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor;
+  }
+  
+  .neon-border {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, inset 0 0 5px currentColor;
+  }
+  
+  .retro-grid {
+    background-image: 
+      linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .terminal-text {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+  
+  .glow-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .glow-hover:hover {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+    transform: translateY(-2px);
+  }
+  
+  .retro-scanlines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      transparent 50%,
+      rgba(0, 255, 255, 0.03) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+  }
+  
+  .text-neon-cyan {
+    color: var(--neon-cyan);
+  }
+  
+  .text-neon-pink {
+    color: var(--neon-pink);
+  }
+  
+  .text-neon-green {
+    color: var(--neon-green);
+  }
+  
+  .text-terminal-green {
+    color: var(--terminal-green);
+  }
+  
+  .text-terminal-amber {
+    color: var(--terminal-amber);
+  }
+  
+  .bg-retro-dark {
+    background-color: var(--retro-dark);
+  }
+  
+  .bg-retro-gray {
+    background-color: var(--retro-gray);
+  }
+  
+  .border-neon-cyan {
+    border-color: var(--neon-cyan);
+  }
+  
+  .border-neon-pink {
+    border-color: var(--neon-pink);
+  }
 }
