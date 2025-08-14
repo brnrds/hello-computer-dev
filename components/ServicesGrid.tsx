@@ -12,10 +12,10 @@ const serviceIcons = {
 
 const serviceColors = {
   "ai-growth": {
-    text: "text-neon-cyan",
-    border: "border-neon-cyan",
-    bg: "bg-neon-cyan/10",
-    hover: "hover:bg-neon-cyan/20"
+    text: "text-primary-blue",
+    border: "border-primary-blue",
+    bg: "bg-primary-blue/10",
+    hover: "hover:bg-primary-blue/20"
   },
   "creative-engines": {
     text: "text-neon-pink",
@@ -40,7 +40,7 @@ export default function ServicesGrid() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-high-contrast mb-6 leading-tight">
-            Our <span className="text-neon-pink neon-glow-subtle">AI-Powered</span> Services
+            Our <span className="text-neon-pink font-semibold">AI-Powered</span> Services
           </h2>
           <p className="text-xl text-medium-contrast max-w-2xl mx-auto leading-relaxed">
             Complete solutions that combine artificial intelligence with human expertise to drive real business results.
@@ -63,7 +63,7 @@ export default function ServicesGrid() {
                     {icon}
                   </div>
                   
-                  <CardTitle className={`text-2xl font-semibold ${colors.text} neon-glow-subtle`}>
+                  <CardTitle className={`text-2xl font-semibold ${colors.text}`}>
                     {service.title}
                   </CardTitle>
                   
@@ -93,7 +93,7 @@ export default function ServicesGrid() {
                   </div>
 
                   {/* CTA Button */}
-                  <Button asChild className={`w-full ${colors.border} ${colors.text} hover:bg-background ${colors.hover} transition-colors group-hover:neon-border`}>
+                  <Button asChild className={`w-full ${colors.border} ${colors.text} hover:bg-background ${colors.hover} transition-colors`}>
                     <Link href={`/services/${service.slug}`} className="flex items-center justify-center">
                       Learn More 
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -109,8 +109,8 @@ export default function ServicesGrid() {
         </div>
 
         {/* Bottom Section - Process Overview */}
-        <div className="bg-retro-dark border border-neon-cyan rounded-xl p-10 text-center">
-          <h3 className="text-2xl font-semibold text-neon-cyan neon-glow-subtle mb-8">
+        <div className="bg-retro-dark border border-neon-cyan-dark rounded-xl p-10 text-center">
+          <h3 className="text-2xl font-semibold text-neon-cyan-dark neon-glow-subtle mb-8">
             Our Process
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-retro-light">

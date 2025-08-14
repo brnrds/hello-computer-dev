@@ -39,7 +39,7 @@ export default function Hero({
       {/* Floating Elements */}
       {variant === "home" && (
         <>
-          <div className="absolute top-20 left-10 w-2 h-2 bg-neon-cyan rounded-full animate-pulse"></div>
+          <div className="absolute top-20 left-10 w-2 h-2 bg-primary-blue rounded-full animate-pulse"></div>
           <div className="absolute top-40 right-20 w-1 h-1 bg-neon-pink rounded-full animate-pulse delay-1000"></div>
           <div className="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-neon-green rounded-full animate-pulse delay-500"></div>
           <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-terminal-amber rounded-full animate-pulse delay-1500"></div>
@@ -61,12 +61,12 @@ export default function Hero({
             : "text-3xl sm:text-4xl lg:text-5xl"
         }`}>
           {title.split(" ").map((word, index) => {
-            // Highlight specific words with subtle neon effects
+            // Highlight specific words with readable colors
             const isHighlight = ["AI", "Computer", "Growth", "Creative", "Technical", "Integration"].includes(word);
             return (
               <span
                 key={index}
-                className={isHighlight ? "text-neon-cyan neon-glow-subtle font-semibold" : ""}
+                className={isHighlight ? "text-primary-blue font-semibold" : ""}
               >
                 {word}{" "}
               </span>
@@ -85,14 +85,14 @@ export default function Hero({
         <div className={`flex flex-col sm:flex-row gap-4 ${
           variant === "home" ? "justify-center" : "justify-center"
         }`}>
-          <Button asChild size="lg" className="neon-border glow-hover">
+          <Button asChild size="lg">
             <Link href={primaryCTA.href}>
               {primaryCTA.text}
             </Link>
           </Button>
 
           {secondaryCTA && (
-            <Button asChild variant="outline" size="lg" className="border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-background glow-hover">
+            <Button asChild variant="outline" size="lg" className="border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-background">
               <Link href={secondaryCTA.href}>
                 {secondaryCTA.text}
               </Link>
@@ -104,15 +104,15 @@ export default function Hero({
         {variant === "home" && (
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-neon-cyan neon-glow-subtle mb-2">340%</div>
+              <div className="text-3xl font-bold text-primary-blue mb-2">340%</div>
               <div className="text-sm text-medium-contrast terminal-text font-medium">Lead Growth</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-neon-green neon-glow-subtle mb-2">10x</div>
+              <div className="text-3xl font-bold text-neon-green mb-2">10x</div>
               <div className="text-sm text-medium-contrast terminal-text font-medium">Faster Content</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-neon-pink neon-glow-subtle mb-2">75%</div>
+              <div className="text-3xl font-bold text-neon-pink mb-2">75%</div>
               <div className="text-sm text-medium-contrast terminal-text font-medium">Time Saved</div>
             </div>
           </div>
@@ -121,10 +121,10 @@ export default function Hero({
         {/* Terminal-style command hint for home variant */}
         {variant === "home" && (
           <div className="mt-12 max-w-md mx-auto">
-            <div className="bg-retro-dark border border-neon-cyan rounded-lg p-4 terminal-text text-left">
+            <div className="bg-retro-dark border border-neon-cyan-dark rounded-lg p-4 terminal-text text-left">
               <div className="text-neon-green text-xs mb-2">$ hello-computer --status</div>
               <div className="text-terminal-green text-sm">
-                <span className="text-neon-cyan">Ready to transform your business</span>
+                <span className="text-neon-cyan-dark neon-glow-subtle">Ready to transform your business</span>
                 <span className="animate-pulse">|</span>
               </div>
             </div>

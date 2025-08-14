@@ -19,7 +19,7 @@ export default function CaseStudyTeaser() {
             
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
               How TechFlow Solutions 
-              <span className="text-neon-cyan neon-glow block">Transformed Their Growth</span>
+              <span className="text-primary-blue font-semibold block">Transformed Their Growth</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -48,7 +48,7 @@ export default function CaseStudyTeaser() {
               </div>
             </div>
 
-            <Button asChild size="lg" className="neon-border glow-hover">
+            <Button asChild size="lg">
               <Link href="/case-studies/techflow-solutions" className="flex items-center">
                 Read Full Case Study
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -58,10 +58,10 @@ export default function CaseStudyTeaser() {
 
           {/* Visual/Stats Card */}
           <div className="space-y-6">
-            <Card className="border-neon-cyan border-opacity-30 bg-card/50 backdrop-blur">
+            <Card className="border-neon-cyan-dark border-opacity-30 bg-card/50 backdrop-blur">
               <CardContent className="p-8">
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-neon-cyan neon-glow mb-6">
+                  <h3 className="text-xl font-bold text-neon-cyan-dark neon-glow-subtle mb-6">
                     6-Month Results Timeline
                   </h3>
                   
@@ -107,13 +107,13 @@ export default function CaseStudyTeaser() {
             </Card>
 
             {/* Terminal Output */}
-            <div className="bg-retro-dark border border-neon-cyan rounded-lg p-6">
+            <div className="bg-retro-dark border border-neon-cyan-dark rounded-lg p-6">
               <div className="terminal-text text-sm">
                 <div className="text-neon-green mb-2">$ analyze --client=techflow --period=6m</div>
                 <div className="text-retro-light space-y-1">
                   <div className="flex justify-between">
                     <span className="text-retro-light/80">Leads Generated:</span>
-                    <span className="text-neon-cyan">2,847</span>
+                    <span className="text-neon-cyan-dark neon-glow-subtle">2,847</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-retro-light/80">Conversion Rate:</span>

@@ -49,12 +49,12 @@ export default function LeadMagnetCTA() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Card className="border-neon-green border-opacity-50 bg-card/50 backdrop-blur">
             <CardContent className="p-12">
-              <CheckCircle className="w-16 h-16 text-neon-green mx-auto mb-6 neon-glow" />
-              <h3 className="text-2xl font-bold text-neon-green neon-glow mb-4">
+              <CheckCircle className="w-16 h-16 text-neon-green mx-auto mb-6" />
+              <h3 className="text-2xl font-bold text-neon-green mb-4">
                 Success! Check Your Email
               </h3>
               <p className="text-muted-foreground mb-6">
-                Your AI Marketing Transformation Guide is on its way to <span className="text-neon-cyan font-medium">{email}</span>
+                Your AI Marketing Transformation Guide is on its way to <span className="text-primary-blue font-medium">{email}</span>
               </p>
               <div className="bg-retro-dark border border-neon-green rounded-lg p-4 terminal-text text-sm">
                 <div className="text-neon-green">$ send-guide --email={email}</div>
@@ -87,7 +87,7 @@ export default function LeadMagnetCTA() {
 
                 <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                   The Complete AI Marketing 
-                  <span className="text-neon-cyan neon-glow block">Transformation Guide</span>
+                  <span className="text-primary-blue font-semibold block">Transformation Guide</span>
                 </h3>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -130,7 +130,7 @@ export default function LeadMagnetCTA() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full neon-border glow-hover"
+                    className="w-full"
                     disabled={isLoading}
                   >
                     {isLoading ? (

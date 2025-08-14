@@ -54,11 +54,16 @@
   --retro-gray-light: #2a2a2a;
   
   /* Neon Accent Colors */
-  --neon-cyan: #00ffff;
+  --neon-cyan: #00ffff; /* Keep for dark theme */
   --neon-pink: #ff00ff;
   --neon-green: #00ff00;
   --neon-purple: #8b5cf6;
   --neon-blue: #3b82f6;
+  
+  /* Light theme friendly colors */
+  --primary-blue: #1e40af;
+  --primary-indigo: #4338ca;
+  --primary-slate: #334155;
   
   /* Terminal Colors */
   --terminal-green: #00ff41;
@@ -165,6 +170,7 @@
 
 /* Retro-Tech Utility Classes */
 @layer utilities {
+  /* Glow effects - for dark backgrounds only */
   .neon-glow {
     text-shadow: 0 0 3px currentColor, 0 0 6px currentColor;
   }
@@ -173,8 +179,21 @@
     text-shadow: 0 0 2px currentColor;
   }
   
+  /* Dark background specific classes */
+  .text-neon-cyan-dark {
+    color: var(--neon-cyan);
+  }
+  
+  .border-neon-cyan-dark {
+    border-color: var(--neon-cyan);
+  }
+  
   .neon-border {
     box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, inset 0 0 5px currentColor;
+  }
+  
+  .neon-border-dark {
+    box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan), inset 0 0 5px var(--neon-cyan);
   }
   
   .retro-grid {
@@ -194,7 +213,8 @@
   }
   
   .glow-hover:hover {
-    text-shadow: 0 0 4px currentColor, 0 0 8px currentColor;
+    /* Disabled for light theme - use for dark theme later */
+    /* text-shadow: 0 0 4px currentColor, 0 0 8px currentColor; */
     transform: translateY(-1px);
   }
   
@@ -242,6 +262,18 @@
     color: var(--neon-cyan);
   }
   
+  .text-primary-blue {
+    color: var(--primary-blue);
+  }
+  
+  .text-primary-indigo {
+    color: var(--primary-indigo);
+  }
+  
+  .text-primary-slate {
+    color: var(--primary-slate);
+  }
+  
   .text-neon-pink {
     color: var(--neon-pink);
   }
@@ -266,8 +298,20 @@
     background-color: var(--retro-gray);
   }
   
+  .bg-primary-blue {
+    background-color: var(--primary-blue);
+  }
+  
   .border-neon-cyan {
     border-color: var(--neon-cyan);
+  }
+  
+  .border-primary-blue {
+    border-color: var(--primary-blue);
+  }
+  
+  .border-primary-indigo {
+    border-color: var(--primary-indigo);
   }
   
   .border-neon-pink {

@@ -30,7 +30,7 @@ export default function Navbar() {
               <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm terminal-text">HC</span>
               </div>
-              <span className="text-xl font-semibold text-high-contrast glow-hover">
+              <span className="text-xl font-semibold text-high-contrast">
                 Hello Computer
               </span>
             </Link>
@@ -43,7 +43,7 @@ export default function Navbar() {
               <div className="relative group">
                 <Link
                   href="/services"
-                  className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors glow-hover"
+                  className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
                 >
                   Services
                 </Link>
@@ -64,14 +64,14 @@ export default function Navbar() {
 
               <Link
                 href="/about"
-                className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors glow-hover"
+                className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors "
               >
                 About
               </Link>
               
               <Link
                 href="/contact"
-                className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors glow-hover"
+                className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors "
               >
                 Contact
               </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button asChild className="neon-border glow-hover">
+            <Button asChild className=" ">
               <Link href="/contact">
                 Book a Call
               </Link>
@@ -141,7 +141,7 @@ export default function Navbar() {
             </Link>
 
             <div className="px-3 pt-4">
-              <Button asChild className="w-full neon-border">
+              <Button asChild className="w-full ">
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
                   Book a Call
                 </Link>

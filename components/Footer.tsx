@@ -30,7 +30,7 @@ export default function Footer() {
         {/* Newsletter Section */}
         <div className="border-b border-retro-gray py-12">
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-neon-cyan neon-glow-subtle mb-4">
+            <h3 className="text-2xl font-bold text-neon-cyan-dark neon-glow-subtle mb-4">
               Stay Ahead of the AI Curve
             </h3>
             <p className="text-gray-200 mb-6 leading-relaxed">
@@ -40,7 +40,7 @@ export default function Footer() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-retro-gray border-neon-cyan text-gray-100 placeholder:text-gray-400"
+                className="bg-retro-gray border-neon-cyan-dark text-gray-100 placeholder:text-gray-400"
               />
               <Button className="bg-neon-cyan text-retro-dark hover:bg-neon-cyan/90 neon-border whitespace-nowrap">
                 Subscribe
@@ -57,7 +57,7 @@ export default function Footer() {
               <div className="w-8 h-8 bg-neon-cyan rounded-sm flex items-center justify-center">
                 <span className="text-retro-dark font-bold text-sm terminal-text">HC</span>
               </div>
-              <span className="text-xl font-bold text-neon-cyan neon-glow-subtle">
+              <span className="text-xl font-bold text-neon-cyan-dark neon-glow-subtle">
                 Hello Computer
               </span>
             </div>
@@ -67,7 +67,7 @@ export default function Footer() {
             <div className="flex space-x-4">
               <Link 
                 href="#" 
-                className="text-gray-200 hover:text-neon-pink transition-colors glow-hover"
+                className="text-gray-200 hover:text-neon-pink transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -76,7 +76,7 @@ export default function Footer() {
               </Link>
               <Link 
                 href="#" 
-                className="text-gray-200 hover:text-neon-pink transition-colors glow-hover"
+                className="text-gray-200 hover:text-neon-pink transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -85,7 +85,7 @@ export default function Footer() {
               </Link>
               <Link 
                 href="#" 
-                className="text-gray-200 hover:text-neon-pink transition-colors glow-hover"
+                className="text-gray-200 hover:text-neon-pink transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -105,7 +105,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-gray-300 hover:text-neon-cyan transition-colors text-sm glow-hover"
+                    className="text-gray-300 hover:text-neon-cyan-dark transition-colors text-sm"
                   >
                     {item.name}
                   </Link>
@@ -124,7 +124,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-gray-300 hover:text-neon-cyan transition-colors text-sm glow-hover"
+                    className="text-gray-300 hover:text-neon-cyan-dark transition-colors text-sm"
                   >
                     {item.name}
                   </Link>
@@ -143,7 +143,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-gray-300 hover:text-neon-cyan transition-colors text-sm glow-hover"
+                    className="text-gray-300 hover:text-neon-cyan-dark transition-colors text-sm"
                   >
                     {item.name}
                   </Link>

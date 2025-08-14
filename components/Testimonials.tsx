@@ -27,7 +27,7 @@ export default function Testimonials() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-high-contrast mb-6 leading-tight">
-            What Our <span className="text-neon-green neon-glow-subtle">Clients</span> Say
+            What Our <span className="text-neon-green font-semibold">Clients</span> Say
           </h2>
           <p className="text-xl text-medium-contrast max-w-2xl mx-auto leading-relaxed">
             Real results from real businesses who've transformed their operations with AI.
@@ -63,7 +63,7 @@ export default function Testimonials() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-neon-cyan' : 'bg-muted-foreground/30'
+                  index === currentIndex ? 'bg-primary-blue' : 'bg-muted-foreground/30'
                 }`}
               />
             ))}
@@ -76,18 +76,18 @@ export default function Testimonials() {
             <div className="terminal-text text-neon-green text-sm mb-6">
               $ analytics --client-results --summary
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-retro-light">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-white">
               <div>
-                <div className="text-4xl font-bold text-neon-cyan neon-glow-subtle mb-3">50+</div>
-                <div className="text-sm text-retro-light/90 terminal-text font-medium">Businesses Transformed</div>
+                <div className="text-4xl font-bold text-neon-cyan-dark neon-glow-subtle mb-3">50+</div>
+                <div className="text-sm text-gray-200 terminal-text font-medium">Businesses Transformed</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-neon-pink neon-glow-subtle mb-3">£2.4M+</div>
-                <div className="text-sm text-retro-light/90 terminal-text font-medium">Revenue Generated</div>
+                <div className="text-4xl font-bold text-neon-pink mb-3">£2.4M+</div>
+                <div className="text-sm text-gray-200 terminal-text font-medium">Revenue Generated</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-neon-green neon-glow-subtle mb-3">98%</div>
-                <div className="text-sm text-retro-light/90 terminal-text font-medium">Client Satisfaction</div>
+                <div className="text-4xl font-bold text-neon-green mb-3">98%</div>
+                <div className="text-sm text-gray-200 terminal-text font-medium">Client Satisfaction</div>
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
   const colors = [
-    { text: "text-neon-cyan", border: "border-neon-cyan", bg: "bg-neon-cyan/10" },
+    { text: "text-primary-blue", border: "border-primary-blue", bg: "bg-primary-blue/10" },
     { text: "text-neon-pink", border: "border-neon-pink", bg: "bg-neon-pink/10" },
     { text: "text-neon-green", border: "border-neon-green", bg: "bg-neon-green/10" },
   ];

@@ -30,9 +30,9 @@ const usps: USP[] = [
 
 const colorClasses = {
   cyan: {
-    text: "text-neon-cyan",
-    border: "border-neon-cyan",
-    bg: "bg-neon-cyan/10"
+    text: "text-primary-blue",
+    border: "border-primary-blue",
+    bg: "bg-primary-blue/10"
   },
   pink: {
     text: "text-neon-pink",
@@ -55,7 +55,7 @@ export default function USPSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-high-contrast mb-6 leading-tight">
-            Why Choose <span className="text-neon-cyan neon-glow-subtle">Hello Computer</span>?
+            Why Choose <span className="text-primary-blue font-semibold">Hello Computer</span>?
           </h2>
           <p className="text-xl text-medium-contrast max-w-2xl mx-auto leading-relaxed">
             We bridge the gap between AI potential and business reality with solutions that actually work.
@@ -77,7 +77,7 @@ export default function USPSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className={`text-xl font-semibold mb-4 ${colors.text} neon-glow-subtle`}>
+                  <h3 className={`text-xl font-semibold mb-4 ${colors.text}`}>
                     {usp.title}
                   </h3>
 
@@ -96,12 +96,12 @@ export default function USPSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-retro-dark border border-neon-cyan rounded-lg p-8 max-w-3xl mx-auto">
+          <div className="bg-retro-dark border border-neon-cyan-dark rounded-lg p-8 max-w-3xl mx-auto">
             <div className="terminal-text text-neon-green text-sm mb-3">
               $ deploy --business-transformation
             </div>
             <p className="text-retro-light text-lg leading-relaxed">
-              Ready to see what <span className="text-neon-cyan neon-glow-subtle font-medium">AI + human expertise</span> can do for your business?
+              Ready to see what <span className="text-neon-cyan-dark neon-glow-subtle font-medium">AI + human expertise</span> can do for your business?
             </p>
           </div>
         </div>
