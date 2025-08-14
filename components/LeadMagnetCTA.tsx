@@ -53,8 +53,8 @@ export default function LeadMagnetCTA() {
               <h3 className="text-2xl font-bold text-neon-green mb-4">
                 Success! Check Your Email
               </h3>
-              <p className="text-muted-foreground mb-6">
-                Your AI Marketing Transformation Guide is on its way to <span className="text-primary-blue font-medium">{email}</span>
+              <p className="text-on-light-muted mb-6">
+                Your AI Marketing Transformation Guide is on its way to <span className="text-accent-primary font-medium">{email}</span>
               </p>
               <div className="bg-retro-dark border border-neon-green rounded-lg p-4 terminal-text text-sm">
                 <div className="text-neon-green">$ send-guide --email={email}</div>
@@ -85,18 +85,18 @@ export default function LeadMagnetCTA() {
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                <h3 className="text-2xl sm:text-3xl font-bold text-on-light mb-4">
                   The Complete AI Marketing 
-                  <span className="text-primary-blue font-semibold block">Transformation Guide</span>
+                  <span className="text-accent-primary font-semibold block">Transformation Guide</span>
                 </h3>
 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-on-light-muted mb-6 leading-relaxed">
                   Get our comprehensive 47-page guide that reveals the exact AI marketing strategies used by top-performing businesses to achieve 300%+ growth.
                 </p>
 
                 {/* What's Inside */}
                 <div className="space-y-3 mb-8">
-                  <h4 className="font-semibold text-foreground text-sm terminal-text">
+                  <h4 className="font-semibold text-on-light text-sm terminal-text">
                     What's Inside:
                   </h4>
                   <ul className="space-y-2">
@@ -106,8 +106,8 @@ export default function LeadMagnetCTA() {
                       "ROI calculation tools & success metrics",
                       "Implementation roadmap & checklists"
                     ].map((item, index) => (
-                      <li key={index} className="flex items-start text-sm text-muted-foreground">
-                        <span className="text-neon-cyan mr-2 flex-shrink-0">▸</span>
+                      <li key={index} className="flex items-start text-sm text-on-light-muted">
+                        <span className="text-accent-primary mr-2 flex-shrink-0">▸</span>
                         {item}
                       </li>
                     ))}

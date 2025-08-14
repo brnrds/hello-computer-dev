@@ -112,9 +112,9 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
   const colors = [
-    { text: "text-primary-blue", border: "border-primary-blue", bg: "bg-primary-blue/10" },
-    { text: "text-neon-pink", border: "border-neon-pink", bg: "bg-neon-pink/10" },
-    { text: "text-neon-green", border: "border-neon-green", bg: "bg-neon-green/10" },
+    { text: "text-accent-primary", border: "border-accent-primary", bg: "bg-accent-primary/10" },
+    { text: "text-accent-secondary", border: "border-accent-secondary", bg: "bg-accent-secondary/10" },
+    { text: "text-accent-tertiary", border: "border-accent-tertiary", bg: "bg-accent-tertiary/10" },
   ];
   
   const color = colors[index % colors.length];
@@ -127,7 +127,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
           <svg className={`w-8 h-8 ${color.text} mb-4 opacity-60`} fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
           </svg>
-          <blockquote className="text-high-contrast text-lg leading-relaxed mb-6">
+          <blockquote className="text-on-light text-lg leading-relaxed mb-6">
             "{testimonial.quote}"
           </blockquote>
         </div>
@@ -150,10 +150,10 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
             <div className={`font-semibold ${color.text}`}>
               {testimonial.name}
             </div>
-            <div className="text-sm text-medium-contrast">
+            <div className="text-sm text-on-light-muted">
               {testimonial.position}, {testimonial.company}
             </div>
-            <div className="text-xs text-medium-contrast terminal-text">
+            <div className="text-xs text-on-light-muted terminal-text">
               {testimonial.service}
             </div>
           </div>

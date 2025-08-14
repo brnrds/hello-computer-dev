@@ -17,12 +17,12 @@ export default function CaseStudyTeaser() {
               Featured Case Study
             </div>
             
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-on-light mb-6">
               How TechFlow Solutions 
-              <span className="text-primary-blue font-semibold block">Transformed Their Growth</span>
+              <span className="text-accent-primary font-semibold block">Transformed Their Growth</span>
             </h2>
             
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg text-on-light-muted mb-8 leading-relaxed">
               See how our AI-powered growth marketing system helped a £3M SaaS company generate 340% more qualified leads while reducing manual marketing work by 80%.
             </p>
 
@@ -69,36 +69,36 @@ export default function CaseStudyTeaser() {
                     {/* Month 1-2 */}
                     <div className="flex items-center justify-between p-4 bg-neon-cyan/5 rounded-lg border border-neon-cyan/20">
                       <div className="text-left">
-                        <div className="font-semibold text-foreground">Months 1-2</div>
-                        <div className="text-sm text-muted-foreground">Setup & Integration</div>
+                        <div className="font-semibold text-on-light">Months 1-2</div>
+                        <div className="text-sm text-on-light-muted">Setup & Integration</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-lg font-bold text-neon-cyan">+50%</div>
-                        <div className="text-xs text-muted-foreground">Lead Quality</div>
+                        <div className="text-lg font-bold text-accent-primary">+50%</div>
+                        <div className="text-xs text-on-light-muted">Lead Quality</div>
                       </div>
                     </div>
 
                     {/* Month 3-4 */}
                     <div className="flex items-center justify-between p-4 bg-neon-pink/5 rounded-lg border border-neon-pink/20">
                       <div className="text-left">
-                        <div className="font-semibold text-foreground">Months 3-4</div>
-                        <div className="text-sm text-muted-foreground">Optimization Phase</div>
+                        <div className="font-semibold text-on-light">Months 3-4</div>
+                        <div className="text-sm text-on-light-muted">Optimization Phase</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-lg font-bold text-neon-pink">+180%</div>
-                        <div className="text-xs text-muted-foreground">Lead Volume</div>
+                        <div className="text-lg font-bold text-accent-secondary">+180%</div>
+                        <div className="text-xs text-on-light-muted">Lead Volume</div>
                       </div>
                     </div>
 
                     {/* Month 5-6 */}
                     <div className="flex items-center justify-between p-4 bg-neon-green/5 rounded-lg border border-neon-green/20">
                       <div className="text-left">
-                        <div className="font-semibold text-foreground">Months 5-6</div>
-                        <div className="text-sm text-muted-foreground">Scale & Expand</div>
+                        <div className="font-semibold text-on-light">Months 5-6</div>
+                        <div className="text-sm text-on-light-muted">Scale & Expand</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-lg font-bold text-neon-green">+340%</div>
-                        <div className="text-xs text-muted-foreground">Total Growth</div>
+                        <div className="text-lg font-bold text-accent-tertiary">+340%</div>
+                        <div className="text-xs text-on-light-muted">Total Growth</div>
                       </div>
                     </div>
                   </div>
@@ -109,19 +109,19 @@ export default function CaseStudyTeaser() {
             {/* Terminal Output */}
             <div className="bg-retro-dark border border-neon-cyan-dark rounded-lg p-6">
               <div className="terminal-text text-sm">
-                <div className="text-neon-green mb-2">$ analyze --client=techflow --period=6m</div>
-                <div className="text-retro-light space-y-1">
+                <div className="text-accent-tertiary-dark mb-2">$ analyze --client=techflow --period=6m</div>
+                <div className="text-on-dark space-y-1">
                   <div className="flex justify-between">
-                    <span className="text-retro-light/80">Leads Generated:</span>
-                    <span className="text-neon-cyan-dark neon-glow-subtle">2,847</span>
+                    <span className="text-on-dark-muted">Leads Generated:</span>
+                    <span className="text-accent-primary-dark-glow">2,847</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-retro-light/80">Conversion Rate:</span>
-                    <span className="text-neon-pink">24.3%</span>
+                    <span className="text-on-dark-muted">Conversion Rate:</span>
+                    <span className="text-accent-secondary-dark-glow">24.3%</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-retro-light/80">ROI:</span>
-                    <span className="text-neon-green">680%</span>
+                    <span className="text-on-dark-muted">ROI:</span>
+                    <span className="text-accent-tertiary-dark-glow">680%</span>
                   </div>
                   <div className="text-terminal-green mt-2">
                     <span className="animate-pulse">▶</span> Success confirmed
