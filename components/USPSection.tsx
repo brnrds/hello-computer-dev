@@ -30,19 +30,19 @@ const usps: USP[] = [
 
 const colorClasses = {
   cyan: {
-    text: "text-primary-blue",
-    border: "border-primary-blue",
-    bg: "bg-primary-blue/10"
+    text: "text-accent-primary",
+    border: "border-accent-primary",
+    bg: "bg-accent-primary/10"
   },
   pink: {
-    text: "text-neon-pink",
-    border: "border-neon-pink",
-    bg: "bg-neon-pink/10"
+    text: "text-accent-secondary",
+    border: "border-accent-secondary",
+    bg: "bg-accent-secondary/10"
   },
   green: {
-    text: "text-neon-green",
-    border: "border-neon-green",
-    bg: "bg-neon-green/10"
+    text: "text-accent-tertiary",
+    border: "border-accent-tertiary",
+    bg: "bg-accent-tertiary/10"
   }
 };
 
@@ -54,10 +54,10 @@ export default function USPSection() {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-high-contrast mb-6 leading-tight">
-            Why Choose <span className="text-primary-blue font-semibold">Hello Computer</span>?
+          <h2 className="text-3xl sm:text-4xl font-bold text-on-light mb-6 leading-tight">
+            Why Choose <span className="text-accent-primary font-semibold">Hello Computer</span>?
           </h2>
-          <p className="text-xl text-medium-contrast max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-on-light-muted max-w-2xl mx-auto leading-relaxed">
             We bridge the gap between AI potential and business reality with solutions that actually work.
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function USPSection() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-medium-contrast leading-relaxed content-spacing">
+                  <p className="text-on-light-muted leading-relaxed content-spacing">
                     {usp.description}
                   </p>
 
@@ -96,12 +96,12 @@ export default function USPSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-retro-dark border border-neon-cyan-dark rounded-lg p-8 max-w-3xl mx-auto">
-            <div className="terminal-text text-neon-green text-sm mb-3">
+          <div className="bg-dark border border-accent-primary-dark rounded-lg p-8 max-w-3xl mx-auto">
+            <div className="terminal-text text-accent-tertiary-dark text-sm mb-3">
               $ deploy --business-transformation
             </div>
-            <p className="text-retro-light text-lg leading-relaxed">
-              Ready to see what <span className="text-neon-cyan-dark neon-glow-subtle font-medium">AI + human expertise</span> can do for your business?
+            <p className="text-on-dark text-lg leading-relaxed">
+              Ready to see what <span className="text-accent-primary-dark-glow font-medium">AI + human expertise</span> can do for your business?
             </p>
           </div>
         </div>
