@@ -30,17 +30,17 @@ export default function Footer() {
         {/* Newsletter Section */}
         <div className="border-b border-retro-gray py-12">
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-neon-cyan neon-glow mb-4">
+            <h3 className="text-2xl font-bold text-neon-cyan neon-glow-subtle mb-4">
               Stay Ahead of the AI Curve
             </h3>
-            <p className="text-retro-light/80 mb-6">
+            <p className="text-gray-200 mb-6 leading-relaxed">
               Get weekly insights on AI marketing, automation trends, and exclusive resources.
             </p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-retro-gray border-neon-cyan text-retro-light placeholder:text-retro-light/60"
+                className="bg-retro-gray border-neon-cyan text-gray-100 placeholder:text-gray-400"
               />
               <Button className="bg-neon-cyan text-retro-dark hover:bg-neon-cyan/90 neon-border whitespace-nowrap">
                 Subscribe
@@ -57,17 +57,17 @@ export default function Footer() {
               <div className="w-8 h-8 bg-neon-cyan rounded-sm flex items-center justify-center">
                 <span className="text-retro-dark font-bold text-sm terminal-text">HC</span>
               </div>
-              <span className="text-xl font-bold text-neon-cyan neon-glow">
+              <span className="text-xl font-bold text-neon-cyan neon-glow-subtle">
                 Hello Computer
               </span>
             </div>
-            <p className="text-retro-light/80 mb-6 text-sm">
+            <p className="text-gray-200 mb-6 text-sm leading-relaxed">
               The done-for-you AI agency that combines cutting-edge technology with human expertise to drive real business results.
             </p>
             <div className="flex space-x-4">
               <Link 
                 href="#" 
-                className="text-retro-light hover:text-neon-pink transition-colors glow-hover"
+                className="text-gray-200 hover:text-neon-pink transition-colors glow-hover"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -76,7 +76,7 @@ export default function Footer() {
               </Link>
               <Link 
                 href="#" 
-                className="text-retro-light hover:text-neon-pink transition-colors glow-hover"
+                className="text-gray-200 hover:text-neon-pink transition-colors glow-hover"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -85,7 +85,7 @@ export default function Footer() {
               </Link>
               <Link 
                 href="#" 
-                className="text-retro-light hover:text-neon-pink transition-colors glow-hover"
+                className="text-gray-200 hover:text-neon-pink transition-colors glow-hover"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -105,7 +105,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-retro-light/80 hover:text-neon-cyan transition-colors text-sm glow-hover"
+                    className="text-gray-300 hover:text-neon-cyan transition-colors text-sm glow-hover"
                   >
                     {item.name}
                   </Link>
@@ -124,7 +124,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-retro-light/80 hover:text-neon-cyan transition-colors text-sm glow-hover"
+                    className="text-gray-300 hover:text-neon-cyan transition-colors text-sm glow-hover"
                   >
                     {item.name}
                   </Link>
@@ -143,7 +143,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-retro-light/80 hover:text-neon-cyan transition-colors text-sm glow-hover"
+                    className="text-gray-300 hover:text-neon-cyan transition-colors text-sm glow-hover"
                   >
                     {item.name}
                   </Link>
@@ -155,10 +155,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-retro-gray py-6 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-retro-light/60 text-sm terminal-text">
+          <p className="text-gray-400 text-sm terminal-text">
             © 2024 Hello Computer. All rights reserved.
           </p>
-          <p className="text-retro-light/60 text-sm mt-2 sm:mt-0">
+          <p className="text-gray-400 text-sm mt-2 sm:mt-0">
             Powered by AI. Guided by humans.
           </p>
         </div>
