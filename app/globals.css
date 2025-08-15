@@ -8,6 +8,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-caprasimo: var(--font-caprasimo);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -81,6 +82,11 @@
   --terminal-green: #00ff41;
   --terminal-amber: #ffb000;
   --terminal-red: #ff073a;
+  
+  /* 1970s Orange Palette */
+  --retro-orange-bright: #ff6b35;   /* Vibrant 70s orange */
+  --retro-orange-warm: #ff8c42;     /* Warmer, softer 70s orange */
+  --retro-orange-dark: #d4440a;     /* Much darker orange for contrast */
   
   /* Main Theme Variables - Improved for readability */
   --background: oklch(0.99 0.002 264.052);
@@ -422,5 +428,23 @@
   
   .border-neon-pink {
     border-color: var(--neon-pink);
+  }
+  
+  /* Typography */
+  .font-caprasimo {
+    font-family: var(--font-caprasimo);
+  }
+  
+  /* 1970s Orange Colors */
+  .text-retro-orange-bright {
+    color: var(--retro-orange-bright);
+  }
+  
+  .text-retro-orange-warm {
+    color: var(--retro-orange-warm);
+  }
+  
+  .text-retro-orange-dark {
+    color: var(--retro-orange-dark);
   }
 }

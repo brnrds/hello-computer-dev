@@ -23,16 +23,18 @@ export default function Navbar() {
   return (
     <nav className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-2 group">
-              <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm terminal-text">HC</span>
+            <Link href="/" className="group">
+              <div className="font-caprasimo leading-none">
+                <div className="text-3xl text-retro-orange-dark group-hover:text-retro-orange-bright transition-colors">
+                  Hello
+                </div>
+                <div className="text-3xl text-retro-orange-warm group-hover:text-retro-orange-bright transition-colors -mt-3">
+                  Computer
+                </div>
               </div>
-              <span className="text-xl font-semibold text-high-contrast">
-                Hello Computer
-              </span>
             </Link>
           </div>
 
