@@ -136,32 +136,32 @@ export default function DeliverablesTable({ service, title }: DeliverablesTableP
         </div>
 
         {/* Terminal-style summary */}
-        <div className="mt-16 bg-retro-dark border border-neon-cyan rounded-xl p-8 text-center">
-          <div className="terminal-text text-sm text-neon-green mb-4">
+        <div className="mt-16 bg-dark border border-accent-primary-dark rounded-xl p-8 text-center">
+          <div className="terminal-text text-sm text-accent-tertiary-dark mb-4">
             $ calculate --total-deliverables --service={service}
           </div>
-          <div className="text-retro-light">
+          <div className="text-on-dark">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div>
-                <div className={`text-2xl font-bold ${colors.text} neon-glow mb-1`}>
+                <div className="text-2xl font-bold text-accent-primary-dark-glow mb-1">
                   {serviceDeliverables.reduce((total, category) => total + category.items.length, 0)}+
                 </div>
-                <div className="text-sm text-retro-light/80">Total Deliverables</div>
+                <div className="text-sm text-on-dark-muted">Total Deliverables</div>
               </div>
               <div>
-                <div className={`text-2xl font-bold ${colors.text} neon-glow mb-1`}>
+                <div className="text-2xl font-bold text-accent-secondary-dark-glow mb-1">
                   {serviceDeliverables.length}
                 </div>
-                <div className="text-sm text-retro-light/80">Delivery Phases</div>
+                <div className="text-sm text-on-dark-muted">Delivery Phases</div>
               </div>
               <div>
-                <div className={`text-2xl font-bold ${colors.text} neon-glow mb-1`}>
+                <div className="text-2xl font-bold text-accent-tertiary-dark-glow mb-1">
                   {serviceDeliverables.length * 2}
                 </div>
-                <div className="text-sm text-retro-light/80">Weeks Timeline</div>
+                <div className="text-sm text-on-dark-muted">Weeks Timeline</div>
               </div>
             </div>
-            <div className="mt-4 text-terminal-green">
+            <div className="mt-4 text-accent-tertiary-dark">
               <span className="animate-pulse">▶</span> All deliverables included in your package
             </div>
           </div>

@@ -63,7 +63,7 @@ export default function Testimonials() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-primary-blue' : 'bg-muted-foreground/30'
+                  index === currentIndex ? 'bg-accent-primary-dark' : 'bg-muted-foreground/30'
                 }`}
               />
             ))}

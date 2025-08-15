@@ -55,7 +55,7 @@ export default function USPSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-on-light mb-6 leading-tight">
-            Why Choose <span className="text-accent-primary font-semibold">Hello Computer</span>?
+            Why Choose Us?
           </h2>
           <p className="text-xl text-on-light-muted max-w-2xl mx-auto leading-relaxed">
             We bridge the gap between AI potential and business reality with solutions that actually work.

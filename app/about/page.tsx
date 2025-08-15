@@ -281,27 +281,27 @@ export default function AboutPage() {
           </div>
 
           {/* Terminal Stats */}
-          <div className="mt-16 bg-retro-gray border border-neon-cyan rounded-xl p-8">
+          <div className="mt-16 bg-dark border border-accent-primary-dark rounded-xl p-8">
             <div className="text-center">
-              <div className="terminal-text text-neon-green text-sm mb-4">
+              <div className="terminal-text text-accent-tertiary-dark text-sm mb-4">
                 $ analytics --company-metrics --year=2024
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
                 <div>
-                  <div className="text-3xl font-bold text-neon-cyan neon-glow mb-1">50+</div>
-                  <div className="text-sm text-retro-light/80 terminal-text">Clients Served</div>
+                  <div className="text-3xl font-bold text-accent-primary-dark-glow mb-1">50+</div>
+                  <div className="text-sm text-on-dark-muted terminal-text">Clients Served</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-neon-pink neon-glow mb-1">£2.4M+</div>
-                  <div className="text-sm text-retro-light/80 terminal-text">Revenue Generated</div>
+                  <div className="text-3xl font-bold text-accent-secondary-dark-glow mb-1">£2.4M+</div>
+                  <div className="text-sm text-on-dark-muted terminal-text">Revenue Generated</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-neon-green neon-glow mb-1">98%</div>
-                  <div className="text-sm text-retro-light/80 terminal-text">Client Satisfaction</div>
+                  <div className="text-3xl font-bold text-accent-tertiary-dark-glow mb-1">98%</div>
+                  <div className="text-sm text-on-dark-muted terminal-text">Client Satisfaction</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-terminal-amber neon-glow mb-1">24/7</div>
-                  <div className="text-sm text-retro-light/80 terminal-text">Support Available</div>
+                  <div className="text-3xl font-bold text-terminal-amber mb-1">24/7</div>
+                  <div className="text-sm text-on-dark-muted terminal-text">Support Available</div>
                 </div>
               </div>
             </div>

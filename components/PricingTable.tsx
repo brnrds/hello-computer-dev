@@ -36,10 +36,10 @@ export default function PricingTable({ service, title }: PricingTableProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {title && (
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl font-bold text-on-light mb-4">
               {title}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-on-light-muted">
               Choose the package that fits your business needs and growth goals.
             </p>
           </div>
@@ -65,20 +65,20 @@ export default function PricingTable({ service, title }: PricingTableProps) {
                 )}
 
                 <CardHeader className="text-center">
-                  <CardTitle className={`text-2xl font-bold ${colors.text} neon-glow`}>
+                  <CardTitle className={`text-2xl font-bold ${colors.text}`}>
                     {tier.package}
                   </CardTitle>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-foreground">
+                    <span className="text-4xl font-bold text-on-light">
                       {tier.price.split('/')[0]}
                     </span>
                     {tier.price.includes('/') && (
-                      <span className="text-muted-foreground">
+                      <span className="text-on-light-muted">
                         /{tier.price.split('/')[1]}
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">
+                  <p className="text-sm text-on-light-muted mt-2">
                     {tier.includes}
                   </p>
                 </CardHeader>
@@ -90,7 +90,7 @@ export default function PricingTable({ service, title }: PricingTableProps) {
                       {tier.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
                           <Check className={`w-4 h-4 ${colors.text} mr-3 mt-0.5 flex-shrink-0`} />
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-on-light-muted">
                             {feature}
                           </span>
                         </li>
@@ -101,11 +101,8 @@ export default function PricingTable({ service, title }: PricingTableProps) {
                   {/* CTA Button */}
                   <Button 
                     asChild 
-                    className={`w-full ${
-                      isPopular 
-                        ? `${colors.border} ${colors.text} hover:bg-background neon-border` 
-                        : `${colors.border} ${colors.text} hover:bg-background`
-                    } transition-colors`}
+                    variant={isPopular ? "default" : "outline"}
+                    className="w-full"
                     size="lg"
                   >
                     <Link href="/contact">
@@ -118,7 +115,7 @@ export default function PricingTable({ service, title }: PricingTableProps) {
 
                   {/* Additional Info */}
                   <div className="text-center">
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs text-on-light-muted">
                       {tier.package === "Custom" || tier.package === "Enterprise Solution" || tier.package === "Enterprise Creative"
                         ? "Custom pricing based on requirements"
                         : "No setup fees • Cancel anytime"
@@ -136,14 +133,14 @@ export default function PricingTable({ service, title }: PricingTableProps) {
 
         {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <div className="bg-retro-dark border border-neon-cyan rounded-xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-neon-cyan neon-glow mb-4">
+          <div className="bg-dark border border-accent-primary-dark rounded-xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-accent-primary-dark-glow mb-4">
               Not sure which package is right for you?
             </h3>
-            <p className="text-retro-light mb-6">
+            <p className="text-on-dark mb-6">
               Book a free consultation and we'll help you choose the perfect solution for your business.
             </p>
-            <Button asChild size="lg" className="neon-border glow-hover">
+            <Button asChild size="lg">
               <Link href="/contact">
                 Book Free Consultation
               </Link>

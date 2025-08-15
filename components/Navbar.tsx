@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import TerminalCTA from "@/components/TerminalCTA";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const navigation = [
     { name: "Services", href: "/services" },
@@ -28,10 +31,10 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Link href="/" className="group">
               <div className="font-caprasimo leading-none">
-                <div className="text-3xl text-retro-orange-dark group-hover:text-retro-orange-bright transition-colors">
+                <div className="text-4xl text-retro-orange-dark group-hover:text-retro-orange-bright transition-colors">
                   Hello
                 </div>
-                <div className="text-3xl text-retro-orange-warm group-hover:text-retro-orange-bright transition-colors -mt-3">
+                <div className="text-4xl text-retro-orange-warm group-hover:text-retro-orange-bright transition-colors -mt-3">
                   Computer
                 </div>
               </div>
@@ -45,7 +48,9 @@ export default function Navbar() {
               <div className="relative group">
                 <Link
                   href="/services"
-                  className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${
+                    pathname.startsWith('/services') ? 'font-semibold' : 'font-medium'
+                  }`}
                 >
                   Services
                 </Link>
@@ -66,14 +71,18 @@ export default function Navbar() {
 
               <Link
                 href="/about"
-                className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors "
+                className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${
+                  pathname === '/about' ? 'font-semibold' : 'font-medium'
+                }`}
               >
                 About
               </Link>
               
               <Link
                 href="/contact"
-                className="text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors "
+                className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${
+                  pathname === '/contact' ? 'font-semibold' : 'font-medium'
+                }`}
               >
                 Contact
               </Link>
@@ -82,11 +91,7 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button asChild className=" ">
-              <Link href="/contact">
-                Book a Call
-              </Link>
-            </Button>
+            <TerminalCTA href="/contact" />
           </div>
 
           {/* Mobile menu button */}
