@@ -12,11 +12,15 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
+  useUser,
 } from "@clerk/nextjs";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { user } = useUser();
+
+  const isAdmin = user?.publicMetadata?.role === 'admin';
 
   const navigation = [
     { name: "Services", href: "/services" },
@@ -93,6 +97,17 @@ export default function Navbar() {
               >
                 Contact
               </Link>
+
+              {isAdmin && (
+                <Link
+                  href="/admin"
+                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${
+                    pathname.startsWith('/admin') ? 'font-semibold' : 'font-medium'
+                  }`}
+                >
+                  Admin
+                </Link>
+              )}
             </div>
           </div>
 
@@ -174,6 +189,16 @@ export default function Navbar() {
             >
               Contact
             </Link>
+
+            {isAdmin && (
+              <Link
+                href="/admin"
+                className="block px-3 py-2 text-sm font-medium text-card-foreground hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Admin
+              </Link>
+            )}
 
             <div className="px-3 pt-4 space-y-3">
               <SignedOut>
