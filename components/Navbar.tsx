@@ -6,6 +6,13 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import TerminalCTA from "@/components/TerminalCTA";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,9 +96,30 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <TerminalCTA href="/contact" />
+          {/* Auth & CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant="outline" size="sm">
+                  Sign In
+                </Button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <Button size="sm">
+                  Sign Up
+                </Button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton 
+                appearance={{
+                  elements: {
+                    avatarBox: "w-8 h-8"
+                  }
+                }}
+              />
+              <TerminalCTA href="/contact" />
+            </SignedIn>
           </div>
 
           {/* Mobile menu button */}
@@ -147,12 +175,37 @@ export default function Navbar() {
               Contact
             </Link>
 
-            <div className="px-3 pt-4">
-              <Button asChild className="w-full ">
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  Book a Call
-                </Link>
-              </Button>
+            <div className="px-3 pt-4 space-y-3">
+              <SignedOut>
+                <div className="flex space-x-2">
+                  <SignInButton mode="modal">
+                    <Button variant="outline" className="flex-1" size="sm">
+                      Sign In
+                    </Button>
+                  </SignInButton>
+                  <SignUpButton mode="modal">
+                    <Button className="flex-1" size="sm">
+                      Sign Up
+                    </Button>
+                  </SignUpButton>
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <div className="flex items-center justify-between">
+                  <UserButton 
+                    appearance={{
+                      elements: {
+                        avatarBox: "w-8 h-8"
+                      }
+                    }}
+                  />
+                  <Button asChild className="flex-1 ml-3">
+                    <Link href="/contact" onClick={() => setIsOpen(false)}>
+                      Book a Call
+                    </Link>
+                  </Button>
+                </div>
+              </SignedIn>
             </div>
           </div>
         </div>
