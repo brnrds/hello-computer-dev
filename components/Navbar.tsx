@@ -119,11 +119,11 @@ export default function Navbar() {
                   Sign In
                 </Button>
               </SignInButton>
-              <SignUpButton mode="modal">
-                <Button size="sm">
-                  Sign Up
-                </Button>
-              </SignUpButton>
+              <Button asChild size="sm">
+                <Link href="/waitlist">
+                  Join Waitlist
+                </Link>
+              </Button>
             </SignedOut>
             <SignedIn>
               <UserButton 
@@ -208,11 +208,11 @@ export default function Navbar() {
                       Sign In
                     </Button>
                   </SignInButton>
-                  <SignUpButton mode="modal">
-                    <Button className="flex-1" size="sm">
-                      Sign Up
-                    </Button>
-                  </SignUpButton>
+                  <Button asChild className="flex-1" size="sm">
+                    <Link href="/waitlist" onClick={() => setIsOpen(false)}>
+                      Join Waitlist
+                    </Link>
+                  </Button>
                 </div>
               </SignedOut>
               <SignedIn>
