@@ -120,8 +120,8 @@ export default function Navbar() {
                 </Button>
               </SignInButton>
               <Button asChild size="sm">
-                <Link href="/waitlist">
-                  Join Waitlist
+                <Link href="/contact-waitlist">
+                  Get Priority Access
                 </Link>
               </Button>
             </SignedOut>
@@ -209,8 +209,8 @@ export default function Navbar() {
                     </Button>
                   </SignInButton>
                   <Button asChild className="flex-1" size="sm">
-                    <Link href="/waitlist" onClick={() => setIsOpen(false)}>
-                      Join Waitlist
+                    <Link href="/contact-waitlist" onClick={() => setIsOpen(false)}>
+                      Get Priority Access
                     </Link>
                   </Button>
                 </div>

@@ -13,7 +13,7 @@ export default function Home() {
         title="The Done-for-You AI Agency"
         subtitle="AI + Human Expertise"
         description="Transform your business with AI-powered growth marketing, creative engines, and seamless technical integration. Expert human guidance meets cutting-edge AI technology."
-        primaryCTA={{ text: "Book a Call", href: "/contact" }}
+        primaryCTA={{ text: "Get Priority Access", href: "/contact-waitlist" }}
         secondaryCTA={{ text: "Download Free Guide", href: "#lead-magnet" }}
         variant="home"
         backgroundPattern={true}
