@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import TerminalCTA from "@/components/TerminalCTA";
+import Image from "next/image";
 import {
   SignInButton,
   SignUpButton,
@@ -41,14 +42,14 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="group">
-              <div className="font-caprasimo leading-none">
-                <div className="text-4xl text-retro-orange-dark group-hover:text-retro-orange-bright transition-colors">
-                  Hello
-                </div>
-                <div className="text-4xl text-retro-orange-warm group-hover:text-retro-orange-bright transition-colors -mt-3">
-                  Computer
-                </div>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Hello Computer"
+                width={200}
+                height={80}
+                className="h-16 w-auto transition-opacity group-hover:opacity-80"
+                priority
+              />
             </Link>
           </div>
 
@@ -59,9 +60,8 @@ export default function Navbar() {
               <div className="relative group">
                 <Link
                   href="/services"
-                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${
-                    pathname.startsWith('/services') ? 'font-semibold' : 'font-medium'
-                  }`}
+                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname.startsWith('/services') ? 'font-semibold' : 'font-medium'
+                    }`}
                 >
                   Services
                 </Link>
@@ -82,18 +82,16 @@ export default function Navbar() {
 
               <Link
                 href="/about"
-                className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${
-                  pathname === '/about' ? 'font-semibold' : 'font-medium'
-                }`}
+                className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname === '/about' ? 'font-semibold' : 'font-medium'
+                  }`}
               >
                 About
               </Link>
-              
+
               <Link
                 href="/contact"
-                className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${
-                  pathname === '/contact' ? 'font-semibold' : 'font-medium'
-                }`}
+                className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname === '/contact' ? 'font-semibold' : 'font-medium'
+                  }`}
               >
                 Contact
               </Link>
@@ -101,9 +99,8 @@ export default function Navbar() {
               {isAdmin && (
                 <Link
                   href="/admin"
-                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${
-                    pathname.startsWith('/admin') ? 'font-semibold' : 'font-medium'
-                  }`}
+                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname.startsWith('/admin') ? 'font-semibold' : 'font-medium'
+                    }`}
                 >
                   Admin
                 </Link>
@@ -114,26 +111,15 @@ export default function Navbar() {
           {/* Auth & CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <SignedOut>
+              <TerminalCTA label="Let's go" href="/contact-waitlist" />
               <SignInButton mode="modal">
                 <Button variant="outline" size="sm">
-                  Sign In
+                  Log In
                 </Button>
               </SignInButton>
-              <Button asChild size="sm">
-                <Link href="/contact-waitlist">
-                  Get Priority Access
-                </Link>
-              </Button>
             </SignedOut>
             <SignedIn>
-              <UserButton 
-                appearance={{
-                  elements: {
-                    avatarBox: "w-8 h-8"
-                  }
-                }}
-              />
-              <TerminalCTA href="/contact" />
+              <TerminalCTA label="logged in" href="/contact-waitlist" />
             </SignedIn>
           </div>
 
@@ -181,7 +167,7 @@ export default function Navbar() {
             >
               About
             </Link>
-            
+
             <Link
               href="/contact"
               className="block px-3 py-2 text-sm font-medium text-card-foreground hover:text-primary transition-colors"
@@ -217,7 +203,7 @@ export default function Navbar() {
               </SignedOut>
               <SignedIn>
                 <div className="flex items-center justify-between">
-                  <UserButton 
+                  <UserButton
                     appearance={{
                       elements: {
                         avatarBox: "w-8 h-8"
