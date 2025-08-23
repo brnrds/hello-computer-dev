@@ -65,8 +65,13 @@ export default function ContactWaitlistPage() {
       const result = await response.json();
 
       if (response.ok) {
-        setIsSubmitted(true);
-        form.reset();
+        // Check if we need to redirect to waitlist
+        if (result.next) {
+          window.location.href = result.next;
+        } else {
+          setIsSubmitted(true);
+          form.reset();
+        }
       } else {
         throw new Error(result.message || 'Failed to submit form');
       }

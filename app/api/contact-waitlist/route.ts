@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { clerkClient } from '@clerk/nextjs/server';
 
 const contactWaitlistSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -95,57 +94,15 @@ export async function POST(request: NextRequest) {
     // 1. Save contact information (your existing contact logic)
     console.log('Enhanced contact form submission:', enhancedContactData);
     
-    // 2. Add to Clerk waitlist programmatically if they want to join
-    let waitlistResult = null;
-    if (validatedData.joinWaitlist) {
-      try {
-        const client = await clerkClient();
-        
-        // Create waitlist entry via Clerk
-        // Note: This uses Clerk's user creation with pending status
-        // You may need to adjust this based on Clerk's specific waitlist API
-        waitlistResult = await client.users.createUser({
-          emailAddress: [validatedData.email],
-          firstName: validatedData.name.split(' ')[0],
-          lastName: validatedData.name.split(' ').slice(1).join(' ') || '',
-          publicMetadata: {
-            waitlistStatus: 'pending',
-            priorityScore,
-            businessProfile: {
-              company: validatedData.company,
-              stage: validatedData.businessStage,
-              timeline: validatedData.timeline,
-              budget: validatedData.budget,
-              aiExperience: validatedData.aiExperience,
-              service: validatedData.service
-            },
-            submissionData: enhancedContactData,
-            immediateAccess
-          },
-          // Set as unverified initially (waitlist mode)
-          skipPasswordRequirement: true,
-          skipPasswordChecks: true,
-        });
-        
-        console.log('User added to waitlist:', waitlistResult.id);
-        
-        // If qualifies for immediate access, update their status
-        if (immediateAccess) {
-          await client.users.updateUserMetadata(waitlistResult.id, {
-            publicMetadata: {
-              ...waitlistResult.publicMetadata,
-              waitlistStatus: 'approved',
-              approvedAt: new Date().toISOString(),
-              autoApproved: true
-            }
-          });
-        }
-        
-      } catch (waitlistError) {
-        console.error('Error adding to waitlist:', waitlistError);
-        // Continue even if waitlist fails - contact form is still processed
-      }
-    }
+    // 2. Do NOT create a Clerk user here; only store lead data as needed.
+    // After processing, send the visitor to the official waitlist flow.
+    console.log('Enhanced contact form submission:', enhancedContactData);
+    
+    // In production, you would also:
+    // - Send notification email to your team with priority flag
+    // - Send confirmation email to user with appropriate messaging
+    // - Add to your CRM with enhanced qualification data
+    // - Trigger automated follow-up sequences based on priority
     
     // Simulate processing time
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -156,17 +113,12 @@ export async function POST(request: NextRequest) {
     // - Add to your CRM with enhanced qualification data
     // - Trigger automated follow-up sequences based on priority
     
-    const responseMessage = immediateAccess 
-      ? 'Congratulations! Based on your profile, you qualify for immediate access. Our team will contact you within 4 hours to set up your account.'
-      : 'Thank you for your detailed application. You\'ve been added to our priority waitlist and we\'ll be in touch within 24 hours.';
-    
+    // Return JSON with redirect instruction for client-side navigation
     return NextResponse.json(
       { 
         success: true, 
-        message: responseMessage,
-        priorityLevel: immediateAccess ? 'immediate' : 'priority',
-        waitlistAdded: !!waitlistResult,
-        estimatedWaitTime: immediateAccess ? 'immediate' : priorityScore >= 60 ? '1-3 days' : '1-2 weeks'
+        message: 'Thank you for your application! Redirecting to waitlist...',
+        next: '/waitlist'
       },
       { status: 200 }
     );
