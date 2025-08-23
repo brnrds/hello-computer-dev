@@ -179,7 +179,7 @@ export async function POST(request: NextRequest) {
         { 
           success: false, 
           message: 'Please check your form inputs',
-          errors: error.errors 
+          errors: error.issues 
         },
         { status: 400 }
       );

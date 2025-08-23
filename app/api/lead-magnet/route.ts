@@ -46,8 +46,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { 
           success: false, 
-          message: 'Invalid email address provided',
-          errors: error.errors 
+          message: 'Invalid email address provided'
         },
         { status: 400 }
       );
@@ -95,8 +94,7 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json(
         { 
           success: false, 
-          message: 'Invalid email address provided',
-          errors: error.errors 
+          message: 'Invalid email address provided'
         },
         { status: 400 }
       );

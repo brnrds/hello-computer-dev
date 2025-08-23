@@ -23,7 +23,7 @@ const contactWaitlistSchema = z.object({
   timeline: z.string().min(1, { message: "Please select your timeline." }),
   currentChallenges: z.string().min(10, { message: "Please describe your main challenges." }),
   aiExperience: z.string().min(1, { message: "Please select your AI experience level." }),
-  joinWaitlist: z.boolean().default(true),
+  joinWaitlist: z.boolean(),
 });
 
 type ContactWaitlistValues = z.infer<typeof contactWaitlistSchema>;
