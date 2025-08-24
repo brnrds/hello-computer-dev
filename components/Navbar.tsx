@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import TerminalCTA from "@/components/TerminalCTA";
 import Image from "next/image";
+import { DesktopMegaMenu } from "@/components/DesktopMegaMenu";
 import {
   SignInButton,
   SignUpButton,
@@ -25,16 +26,20 @@ export default function Navbar() {
   const isUser = user?.publicMetadata?.role === 'user';
   const userTier = user?.publicMetadata?.tier ?? null;
 
-  const navigation = [
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const services = [
-    { name: "AI Growth", href: "/services/ai-growth" },
-    { name: "Creative Engines", href: "/services/creative-engines" },
-    { name: "Technical Integration", href: "/services/technical-integration" },
+  const MENU = [
+    {
+      id: "services",
+      label: "Services",
+      children: [
+        { title: "AI Growth", href: "/services/ai-growth", description: "Acquisition, funnels, LTV." },
+        { title: "Creative Engines", href: "/services/creative-engines", description: "Content systems & tooling." },
+        { title: "Technical Integration", href: "/services/technical-integration", description: "Data, automations, infra." },
+      ],
+    },
+    { id: "about", label: "About" },
+    { id: "contact", label: "Contact" },
+    ...(isAdmin ? [{ id: "admin", label: "Admin" }] : []),
+    ...(isUser && userTier === 'free' ? [{ id: "generators", label: "Generators" }] : []),
   ];
 
   return (
@@ -57,69 +62,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {/* Services Dropdown */}
-              <div className="relative group">
-                <Link
-                  href="/services"
-                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname.startsWith('/services') ? 'font-semibold' : 'font-medium'
-                    }`}
-                >
-                  Services
-                </Link>
-                <div className="absolute left-0 mt-2 w-64 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="py-2">
-                    {services.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        className="block px-4 py-2 text-sm text-card-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-
-              {isUser && userTier === 'free' && (
-                <Link
-                  href="/generators"
-                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname.startsWith('/generators') ? 'font-semibold' : 'font-medium'
-                    }`}
-                >
-                  Generators
-                </Link>
-              )}
-
-              <Link
-                href="/about"
-                className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname === '/about' ? 'font-semibold' : 'font-medium'
-                  }`}
-              >
-                About
-              </Link>
-
-              <Link
-                href="/contact"
-                className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname === '/contact' ? 'font-semibold' : 'font-medium'
-                  }`}
-              >
-                Contact
-              </Link>
-
-              {isAdmin && (
-                <Link
-                  href="/admin"
-                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname.startsWith('/admin') ? 'font-semibold' : 'font-medium'
-                    }`}
-                >
-                  Admin
-                </Link>
-              )}
-
-            </div>
+            <DesktopMegaMenu items={MENU} headerHeight={80} />
           </div>
 
           {/* Auth & CTA Buttons */}
@@ -161,14 +104,14 @@ export default function Navbar() {
             <div className="px-3 py-2">
               <div className="text-sm font-medium text-card-foreground mb-2">Services</div>
               <div className="space-y-1 ml-4">
-                {services.map((service) => (
+                {MENU.find(item => item.id === 'services')?.children?.map((service) => (
                   <Link
                     key={service.href}
                     href={service.href}
                     className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    {service.name}
+                    {service.title}
                   </Link>
                 ))}
               </div>
@@ -189,6 +132,16 @@ export default function Navbar() {
             >
               Contact
             </Link>
+
+            {isUser && userTier === 'free' && (
+              <Link
+                href="/generators"
+                className="block px-3 py-2 text-sm font-medium text-card-foreground hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Generators
+              </Link>
+            )}
 
             {isAdmin && (
               <Link
