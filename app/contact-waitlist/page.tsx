@@ -90,12 +90,12 @@ export default function ContactWaitlistPage() {
           <div className="bg-card border border-border rounded-lg p-8 shadow-sm">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
             <h1 className="text-3xl font-bold text-foreground mb-4">
-              Welcome to the Priority Waitlist!
+              You're on the Waitlist!
             </h1>
             <p className="text-muted-foreground mb-6">
-              Thank you for providing detailed information about your business needs. 
-              You've been added to our priority waitlist and our team will review your 
-              submission within 24 hours.
+              Thank you for your application! You've been successfully added to our waitlist. 
+              Our team will review your submission and you'll receive an invitation when your 
+              spot is ready.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">

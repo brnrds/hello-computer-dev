@@ -1,17 +1,18 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { z } from 'zod';
 
-const contactWaitlistSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  company: z.string().min(2, 'Company name must be at least 2 characters'),
-  service: z.string().min(1, 'Please select a service'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+// Adjust fields to match your form payload
+const WaitlistSchema = z.object({
+  name: z.string().min(1),
+  email: z.string().email(),
+  company: z.string().optional().default(''),
+  service: z.string().optional(),
+  message: z.string().optional(),
   budget: z.string().optional(),
-  businessStage: z.string().min(1, 'Please select your business stage'),
-  timeline: z.string().min(1, 'Please select your timeline'),
-  currentChallenges: z.string().min(10, 'Please describe your challenges'),
-  aiExperience: z.string().min(1, 'Please select your AI experience level'),
+  businessStage: z.string().optional(),
+  timeline: z.string().optional(),
+  currentChallenges: z.string().optional(),
+  aiExperience: z.string().optional(),
   joinWaitlist: z.boolean().default(true),
 });
 
@@ -62,58 +63,18 @@ function qualifiesForImmediateAccess(data: any, score: number): boolean {
   return score >= 80 || (hasUrgentTimeline && (hasGoodBudget || isLargerCompany));
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
+    const body = await req.json();
+    const input = WaitlistSchema.parse(body);
+
+    // --- Your existing enrichment / CRM logging (keep if you have it) ---
+    console.log('Form submission received:', input);
+
+    // Since waitlistEntries API is not available in this Clerk version,
+    // we'll store the form data and redirect to the official waitlist flow
+    // where the user can complete their waitlist entry
     
-    // Validate the request body
-    const validatedData = contactWaitlistSchema.parse(body);
-    
-    // Calculate priority score
-    const priorityScore = calculatePriorityScore(validatedData);
-    const immediateAccess = qualifiesForImmediateAccess(validatedData, priorityScore);
-    
-    // Enhanced contact data with waitlist metadata
-    const enhancedContactData = {
-      ...validatedData,
-      source: 'contact-waitlist',
-      priorityScore,
-      immediateAccess,
-      submittedAt: new Date().toISOString(),
-      // Additional metadata for CRM
-      leadQuality: priorityScore >= 60 ? 'high' : priorityScore >= 30 ? 'medium' : 'low',
-      qualification: {
-        businessStage: validatedData.businessStage,
-        timeline: validatedData.timeline,
-        budget: validatedData.budget,
-        aiExperience: validatedData.aiExperience,
-        priorityScore
-      }
-    };
-    
-    // 1. Save contact information (your existing contact logic)
-    console.log('Enhanced contact form submission:', enhancedContactData);
-    
-    // 2. Do NOT create a Clerk user here; only store lead data as needed.
-    // After processing, send the visitor to the official waitlist flow.
-    console.log('Enhanced contact form submission:', enhancedContactData);
-    
-    // In production, you would also:
-    // - Send notification email to your team with priority flag
-    // - Send confirmation email to user with appropriate messaging
-    // - Add to your CRM with enhanced qualification data
-    // - Trigger automated follow-up sequences based on priority
-    
-    // Simulate processing time
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // 3. In production, you would also:
-    // - Send notification email to your team with priority flag
-    // - Send confirmation email to user with appropriate messaging
-    // - Add to your CRM with enhanced qualification data
-    // - Trigger automated follow-up sequences based on priority
-    
-    // Return JSON with redirect instruction for client-side navigation
     return NextResponse.json(
       { 
         success: true, 
@@ -122,27 +83,15 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-    
-  } catch (error) {
-    console.error('Contact-waitlist form error:', error);
-    
-    if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { 
-          success: false, 
-          message: 'Please check your form inputs',
-          errors: error.issues 
-        },
-        { status: 400 }
-      );
-    }
-    
+  } catch (err: any) {
+    console.error('waitlist submit failed', err);
     return NextResponse.json(
-      { 
-        success: false, 
-        message: 'An error occurred while processing your application. Please try again or contact us directly.' 
+      {
+        success: false,
+        error: 'unable_to_process_form',
+        details: err?.message ?? 'Unknown error',
       },
-      { status: 500 }
+      { status: 400 }
     );
   }
 }

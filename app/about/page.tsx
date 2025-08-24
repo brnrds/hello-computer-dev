@@ -70,7 +70,7 @@ export default function AboutPage() {
                   ].map((item, index) => (
                     <div key={index} className="flex items-start space-x-4">
                       <div className="w-12 h-12 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-xs font-bold text-neon-cyan terminal-text">{item.year}</span>
+                        <span className="text-xs font-bold text-neon-cyan font-mono">{item.year}</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-foreground">{item.milestone}</h4>
@@ -281,27 +281,27 @@ export default function AboutPage() {
           </div>
 
           {/* Terminal Stats */}
-          <div className="mt-16 bg-dark border border-accent-primary-dark rounded-xl p-8">
+          <div className="mt-16 bg-black border border-green-400 rounded-xl p-8 shadow-2xl">
             <div className="text-center">
-              <div className="terminal-text text-accent-tertiary-dark text-sm mb-4">
+              <div className="font-mono text-green-400 text-sm mb-4">
                 $ analytics --company-metrics --year=2024
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
                 <div>
-                  <div className="text-3xl font-bold text-accent-primary-dark-glow mb-1">50+</div>
-                  <div className="text-sm text-on-dark-muted terminal-text">Clients Served</div>
+                  <div className="text-3xl font-bold text-cyan-400 mb-1">50+</div>
+                  <div className="text-sm text-white font-mono">Clients Served</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-accent-secondary-dark-glow mb-1">£2.4M+</div>
-                  <div className="text-sm text-on-dark-muted terminal-text">Revenue Generated</div>
+                  <div className="text-3xl font-bold text-pink-400 mb-1">£2.4M+</div>
+                  <div className="text-sm text-white font-mono">Revenue Generated</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-accent-tertiary-dark-glow mb-1">98%</div>
-                  <div className="text-sm text-on-dark-muted terminal-text">Client Satisfaction</div>
+                  <div className="text-3xl font-bold text-green-400 mb-1">98%</div>
+                  <div className="text-sm text-white font-mono">Client Satisfaction</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-terminal-amber mb-1">24/7</div>
-                  <div className="text-sm text-on-dark-muted terminal-text">Support Available</div>
+                  <div className="text-3xl font-bold text-yellow-400 mb-1">24/7</div>
+                  <div className="text-sm text-white font-mono">Support Available</div>
                 </div>
               </div>
             </div>
@@ -334,13 +334,13 @@ export default function AboutPage() {
             </Button>
           </div>
 
-          <div className="mt-8 bg-retro-dark border border-neon-cyan rounded-lg p-4 max-w-md mx-auto">
-            <div className="terminal-text text-sm text-neon-green mb-1">
+          <div className="mt-8 bg-black border border-green-400 rounded-lg p-4 max-w-md mx-auto shadow-2xl">
+            <div className="font-mono text-sm text-green-400 mb-1">
               $ status --team-availability
             </div>
-            <div className="text-retro-light text-sm">
-              <span className="text-neon-cyan">Ready to help</span>
-              <span className="animate-pulse">|</span>
+            <div className="text-white text-sm font-mono">
+              <span className="text-cyan-400">Ready to help</span>
+              <span className="animate-pulse text-green-400">|</span>
             </div>
           </div>
         </div>
