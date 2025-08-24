@@ -22,6 +22,8 @@ export default function Navbar() {
   const { user } = useUser();
 
   const isAdmin = user?.publicMetadata?.role === 'admin';
+  const isUser = user?.publicMetadata?.role === 'user';
+  const userTier = user?.publicMetadata?.tier ?? null;
 
   const navigation = [
     { name: "Services", href: "/services" },
@@ -80,6 +82,17 @@ export default function Navbar() {
                 </div>
               </div>
 
+
+              {isUser && userTier === 'free' && (
+                <Link
+                  href="/generators"
+                  className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname.startsWith('/generators') ? 'font-semibold' : 'font-medium'
+                    }`}
+                >
+                  Generators
+                </Link>
+              )}
+
               <Link
                 href="/about"
                 className={`text-foreground hover:text-primary px-3 py-2 text-base transition-colors ${pathname === '/about' ? 'font-semibold' : 'font-medium'
@@ -105,6 +118,7 @@ export default function Navbar() {
                   Admin
                 </Link>
               )}
+
             </div>
           </div>
 
