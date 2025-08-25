@@ -128,13 +128,13 @@ export function DesktopMegaMenu({
                       delay: index * 0.1,
                       ease: [0.22, 1, 0.36, 1]
                     }}
-                    className="group flex-1 rounded-xl border border-border bg-card shadow-sm hover:shadow-md p-8 hover:bg-accent/50 focus:bg-accent/50 outline-none transition-all duration-300 flex flex-col justify-center"
+                    className="group flex-1 rounded-xl border border-gray-200/60 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-lg p-8 hover:bg-white/95 hover:border-gray-300/80 focus:bg-white/95 focus:border-gray-300/80 outline-none transition-all duration-500 ease-out hover:scale-[1.01] flex flex-col justify-center"
                   >
-                    <div className="mb-4 text-xl font-semibold text-card-foreground group-hover:text-primary transition-colors">
+                    <div className="mb-4 text-xl font-semibold text-gray-800 group-hover:text-gray-900 transition-colors duration-300 ease-out">
                       {child.title}
                     </div>
                     {child.description && (
-                      <p className="text-base text-muted-foreground leading-relaxed">{child.description}</p>
+                      <p className="text-base text-gray-600/90 group-hover:text-gray-700 leading-relaxed transition-colors duration-300 ease-out">{child.description}</p>
                     )}
                   </motion.a>
                 ))}
