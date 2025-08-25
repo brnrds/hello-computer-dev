@@ -4,6 +4,33 @@ import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+const serviceIcons = {
+  "ai-growth": "🚀",
+  "creative-engines": "🎨",
+  "technical-integration": "⚙️"
+};
+
+const serviceColors = {
+  "ai-growth": {
+    text: "text-accent-primary",
+    border: "border-accent-primary",
+    bg: "bg-accent-primary/10",
+    hover: "hover:bg-accent-primary/20"
+  },
+  "creative-engines": {
+    text: "text-accent-secondary",
+    border: "border-accent-secondary",
+    bg: "bg-accent-secondary/10",
+    hover: "hover:bg-accent-secondary/20"
+  },
+  "technical-integration": {
+    text: "text-accent-tertiary",
+    border: "border-accent-tertiary",
+    bg: "bg-accent-tertiary/10",
+    hover: "hover:bg-accent-tertiary/20"
+  }
+};
+
 type MegaChild = {
   title: string;
   href: string;
@@ -117,27 +144,48 @@ export function DesktopMegaMenu({
             {/* Panel */}
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 flex items-center" style={{ height: `calc(100vh - ${headerHeight}px)` }}>
               <div className="flex gap-6 w-full">
-                {activeItem!.children!.map((child, index) => (
-                  <motion.a
-                    key={child.href}
-                    href={child.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      duration: 0.3, 
-                      delay: index * 0.1,
-                      ease: [0.22, 1, 0.36, 1]
-                    }}
-                    className="group flex-1 rounded-xl border border-gray-200/60 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-lg p-8 hover:bg-white/95 hover:border-gray-300/80 focus:bg-white/95 focus:border-gray-300/80 outline-none transition-all duration-500 ease-out hover:scale-[1.01] flex flex-col justify-center"
-                  >
-                    <div className="mb-4 text-xl font-semibold text-gray-800 group-hover:text-gray-900 transition-colors duration-300 ease-out">
-                      {child.title}
-                    </div>
-                    {child.description && (
-                      <p className="text-base text-gray-600/90 group-hover:text-gray-700 leading-relaxed transition-colors duration-300 ease-out">{child.description}</p>
-                    )}
-                  </motion.a>
-                ))}
+                                {activeItem!.children!.map((child, index) => {
+                  const serviceId = child.href.split('/').pop() as keyof typeof serviceColors;
+                  const colors = serviceColors[serviceId];
+                  const icon = serviceIcons[serviceId];
+                  
+                  return (
+                    <motion.a
+                      key={child.href}
+                      href={child.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ 
+                        duration: 0.3, 
+                        delay: index * 0.1,
+                        ease: [0.22, 1, 0.36, 1]
+                      }}
+                      className={`group flex-1 rounded-xl bg-card/50 backdrop-blur transition-all duration-300 hover:scale-105 overflow-hidden relative no-underline`}
+                    >
+                      <div className="p-8 text-center">
+                        {/* Service Icon - exactly like homepage */}
+                        <div className={`w-20 h-20 mx-auto mb-4 rounded-full ${colors.bg} flex items-center justify-center text-3xl border ${colors.border} border-opacity-30`}>
+                          {icon}
+                        </div>
+                        
+                        {/* Title - exactly like homepage */}
+                        <div className={`text-2xl font-semibold ${colors.text} mb-2`}>
+                          {child.title}
+                        </div>
+                        
+                        {/* Description - exactly like homepage */}
+                        {child.description && (
+                          <p className="text-on-light-muted leading-relaxed">
+                            {child.description}
+                          </p>
+                        )}
+                      </div>
+                      
+                      {/* Hover Effect Overlay - exactly like homepage */}
+                      <div className={`absolute inset-0 ${colors.bg} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`}></div>
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
