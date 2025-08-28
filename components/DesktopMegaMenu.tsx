@@ -111,7 +111,12 @@ export function DesktopMegaMenu({
               onMouseEnter={() => (hasChildren(item) ? openFor(item.id) : openFor(null))}
               onFocus={() => (hasChildren(item) ? openFor(item.id) : openFor(null))}
               onClick={() => {
-                if (!hasChildren(item)) window.location.href = `/${item.id}`;
+                if (!hasChildren(item)) {
+                  window.location.href = `/${item.id}`;
+                } else if (item.id === 'services') {
+                  // Allow navigation to services page even when it has children
+                  window.location.href = '/services';
+                }
               }}
             >
               {item.label}
@@ -136,8 +141,12 @@ export function DesktopMegaMenu({
             aria-label={`${activeItem!.label} menu`}
           >
             {/* Full viewport backdrop */}
-            <div
-              className="absolute inset-0 bg-black/5"
+            <motion.div
+              initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+              animate={{ opacity: 1, backdropFilter: "blur(12px)" }}
+              exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0 bg-black/80 backdrop-blur-xl"
               onClick={() => delayedClose(0)}
               aria-hidden
             />
@@ -160,7 +169,7 @@ export function DesktopMegaMenu({
                         delay: index * 0.1,
                         ease: [0.22, 1, 0.36, 1]
                       }}
-                      className={`group flex-1 rounded-xl bg-card/50 backdrop-blur transition-all duration-300 hover:scale-105 overflow-hidden relative no-underline`}
+                      className={`group flex-1 rounded-xl bg-white shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden relative no-underline`}
                     >
                       <div className="p-8 text-center">
                         {/* Service Icon - exactly like homepage */}
