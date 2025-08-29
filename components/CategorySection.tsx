@@ -12,6 +12,14 @@ type Props = {
   services: Service[];
   deliverables?: Deliverable[];
   packages?: Record<string, { Price: string; Includes: string }>;
+  formData: {
+    company: string;
+    industry: string;
+    offer: string;
+    icp: string;
+    brand_tone: string;
+    stack: string;
+  };
 };
 
 export default function CategorySection({
@@ -20,7 +28,8 @@ export default function CategorySection({
   buildPrompt,
   services,
   deliverables,
-  packages
+  packages,
+  formData
 }: Props) {
   return (
     <section className="space-y-4 rounded-xl border bg-background p-6">
@@ -29,7 +38,7 @@ export default function CategorySection({
           <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
           <p className="mt-1 text-muted-foreground">{description}</p>
         </div>
-        {buildPrompt ? <PromptActions prompt={buildPrompt} /> : null}
+        {buildPrompt ? <PromptActions prompt={buildPrompt} formData={formData} /> : null}
       </header>
 
       <div className="grid gap-3 md:grid-cols-2">
@@ -39,6 +48,7 @@ export default function CategorySection({
             name={s.Name}
             description={s.Description}
             buildPrompt={s.BuildPrompt}
+            formData={formData}
           />
         ))}
       </div>

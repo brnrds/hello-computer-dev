@@ -35,8 +35,21 @@ export const HELLO_COMPUTER_DATA: Offerings = {
           "Useful guides or tools plus simple pages that capture contact details.",
         BuildPrompt:
           "Role: Conversion designer AI. Build 1 lead magnet + 1 landing page for {company}. Inputs: {offer}, {icp}, {brand_tone}. Steps: choose angle; outline; write; LP wireframe; analytics; GDPR; email confirmation. Outputs: PDF draft, LP copy, form schema, thank-you email, tracking plan."
+      },
+      {
+        Name: "Content marketing (LinkedIn + blog)",
+        Description:
+          "Regular posts and articles that build trust and bring in leads.",
+        BuildPrompt:
+          "Role: Content strategist AI. Create a 30-day content plan for {company}. Inputs: {offer}, {icp}, {brand_tone}. Steps: content pillars; post formats; editorial calendar; repurposing matrix. Outputs: 30 LinkedIn posts, 4 blog outlines, content guidelines."
+      },
+      {
+        Name: "CRM + automation setup",
+        Description:
+          "Connect your tools so leads flow smoothly from first contact to closed deal.",
+        BuildPrompt:
+          "Role: RevOps AI. Design CRM workflows for {company}. Inputs: {stack}, sales process, {compliance_notes}. Steps: stage mapping; automation rules; reporting setup; handoff protocols. Outputs: CRM config, automation flowchart, SOP."
       }
-      // ... include the rest of the services from your approved JSON
     ],
     "Example Deliverables": [
       { Name: "4-week cold outbound campaign", Description: "Identify ideal customers, craft outreach, launch, and book meetings." },
@@ -59,12 +72,30 @@ export const HELLO_COMPUTER_DATA: Offerings = {
         Description: "Message, logo, colors, and templates that feel like you.",
         BuildPrompt:
           "Role: Brand systems AI. Produce a brand kit. Steps: audience + competitor scan; messaging ladder; logo directions; color + type tokens; layout system; social templates. Outputs: positioning one-pager, style guide JSON + PDF."
+      },
+      {
+        Name: "Website design + build",
+        Description: "Modern, mobile-friendly sites that convert visitors into customers.",
+        BuildPrompt:
+          "Role: Web designer AI. Build a conversion-focused website for {company}. Inputs: {offer}, {icp}, {brand_tone}, competitors. Steps: sitemap; wireframes; copy; visual design; development specs. Outputs: Figma file, copy doc, dev handoff."
+      },
+      {
+        Name: "Video + motion graphics",
+        Description: "Explainer videos, demos, and social content that gets your message across.",
+        BuildPrompt:
+          "Role: Video producer AI. Create video content for {company}. Inputs: {offer}, {brand_tone}, use cases. Steps: script; storyboard; style frames; animation plan; audio. Outputs: script, storyboard, style guide, production timeline."
+      },
+      {
+        Name: "Marketing collateral",
+        Description: "Pitch decks, case studies, and sales materials that close deals.",
+        BuildPrompt:
+          "Role: Marketing designer AI. Create sales collateral for {company}. Inputs: {offer}, {icp}, success stories. Steps: content audit; template design; copy framework; asset library. Outputs: pitch deck template, case study format, brand guidelines."
       }
-      // ... more services from your JSON
     ],
     Packages: {
-      "Brand Quickstart": { Price: "£3,000–£5,000", Includes: "Workshop + brand assets" }
-      // ... more tiers
+      "Brand Quickstart": { Price: "£3,000–£5,000", Includes: "Workshop + brand assets" },
+      "Full Creative Suite": { Price: "£8,000–£15,000", Includes: "Brand + website + collateral" },
+      "Ongoing Creative": { Price: "£2,000/month", Includes: "Monthly design support + content" }
     }
   },
   "Technical Integration": {
@@ -78,9 +109,31 @@ export const HELLO_COMPUTER_DATA: Offerings = {
         Description: "Embed AI assistants into support, onboarding, or sales.",
         BuildPrompt:
           "Role: Agent engineer AI. Build an agent with tools (search/RAG, CRM, calendar, helpdesk). Steps: guardrails; KB curation; prompt + tools; eval; monitoring/handoff. Outputs: config files, index plan, eval report."
+      },
+      {
+        Name: "Workflow automation",
+        Description: "Connect your apps so data flows automatically between systems.",
+        BuildPrompt:
+          "Role: Automation engineer AI. Design workflows for {company}. Inputs: {stack}, process maps, {compliance_notes}. Steps: trigger mapping; data transformation; error handling; monitoring. Outputs: workflow diagrams, integration specs, testing plan."
+      },
+      {
+        Name: "Data pipelines + reporting",
+        Description: "Clean, combine, and visualize data from multiple sources.",
+        BuildPrompt:
+          "Role: Data engineer AI. Build reporting infrastructure for {company}. Inputs: {stack}, KPIs, data sources. Steps: schema design; ETL pipeline; dashboard mockups; alerting rules. Outputs: data model, pipeline code, dashboard spec."
+      },
+      {
+        Name: "API development",
+        Description: "Custom endpoints and integrations for unique business needs.",
+        BuildPrompt:
+          "Role: API architect AI. Design custom integrations for {company}. Inputs: {stack}, requirements, {compliance_notes}. Steps: endpoint design; authentication; rate limiting; documentation. Outputs: API spec, integration guide, testing suite."
       }
-      // ... more services
-    ]
+    ],
+    Packages: {
+      "Integration Starter": { Price: "£3,500–£7,000", Includes: "2-3 tool connections + basic automation" },
+      "Full Automation Suite": { Price: "£10,000–£20,000", Includes: "Complete workflow automation + monitoring" },
+      "Ongoing Support": { Price: "£1,500/month", Includes: "Maintenance + new integrations" }
+    }
   },
   "Other Engagements": {
     Description:
@@ -93,6 +146,18 @@ export const HELLO_COMPUTER_DATA: Offerings = {
         Description: "Half-day or full-day sessions to solve a specific problem or train your team.",
         BuildPrompt:
           "Role: Workshop designer AI. Create a 4-hour session with objectives, agenda, exercises, materials, and outcomes."
+      },
+      {
+        Name: "Strategy audits",
+        Description: "Quick review of your current approach with specific recommendations.",
+        BuildPrompt:
+          "Role: Strategy consultant AI. Audit {company}'s current approach. Inputs: {offer}, {stack}, current metrics. Steps: gap analysis; competitive review; opportunity mapping. Outputs: audit report, priority matrix, 90-day roadmap."
+      },
+      {
+        Name: "Technical consulting",
+        Description: "Expert advice on architecture, tools, and implementation.",
+        BuildPrompt:
+          "Role: Technical advisor AI. Provide technical guidance for {company}. Inputs: {stack}, requirements, constraints. Steps: architecture review; tool evaluation; implementation planning. Outputs: technical recommendations, migration plan, risk assessment."
       }
     ]
   }
