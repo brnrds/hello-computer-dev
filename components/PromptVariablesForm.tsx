@@ -24,9 +24,10 @@ type Props = {
     stack: string;
   };
   setFormData: (data: any) => void;
+  onReset?: () => void;
 };
 
-export function PromptVariablesForm({ initialData, formData, setFormData }: Props) {
+export function PromptVariablesForm({ initialData, formData, setFormData, onReset }: Props) {
   const handleInputChange = (field: string, value: string) => {
     setFormData({
       ...formData,
@@ -35,14 +36,19 @@ export function PromptVariablesForm({ initialData, formData, setFormData }: Prop
   };
 
   const handleReset = () => {
-    setFormData({
-      company: initialData.company || "",
-      industry: initialData.industry || "",
-      offer: initialData.offer || "",
-      icp: initialData.icp || "",
-      brand_tone: initialData.brand_tone || "",
-      stack: initialData.stack?.join(", ") || ""
-    });
+    if (onReset) {
+      onReset();
+    } else {
+      // Fallback to default behavior if no custom reset handler
+      setFormData({
+        company: initialData.company || "",
+        industry: initialData.industry || "",
+        offer: initialData.offer || "",
+        icp: initialData.icp || "",
+        brand_tone: initialData.brand_tone || "",
+        stack: initialData.stack?.join(", ") || ""
+      });
+    }
   };
 
   return (

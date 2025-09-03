@@ -3,7 +3,7 @@
 import CategorySection from "@/components/CategorySection";
 import { HELLO_COMPUTER_DATA } from "@/data/hello-computer";
 import { Offerings } from "@/types/offerings";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PromptVariablesForm } from "@/components/PromptVariablesForm";
 
 export default function Page() {
@@ -12,8 +12,8 @@ export default function Page() {
   const { _meta, ...categories } = data;
   const metaVars = _meta?.PromptVariables;
 
-  // State to store form data
-  const [formData, setFormData] = useState({
+  // Helper function to get initial form data
+  const getInitialFormData = () => ({
     company: metaVars?.company || "",
     industry: metaVars?.industry || "",
     offer: metaVars?.offer || "",
@@ -21,6 +21,29 @@ export default function Page() {
     brand_tone: metaVars?.brand_tone || "",
     stack: metaVars?.stack?.join(", ") || ""
   });
+
+  // State to store form data
+  const [formData, setFormData] = useState(getInitialFormData);
+
+  // Load data from localStorage on component mount
+  useEffect(() => {
+    const savedData = localStorage.getItem('hello-computer-form-data');
+    if (savedData) {
+      try {
+        const parsedData = JSON.parse(savedData);
+        setFormData(parsedData);
+      } catch (error) {
+        console.error('Error parsing saved form data:', error);
+        // If there's an error, fall back to defaults
+        setFormData(getInitialFormData());
+      }
+    }
+  }, []);
+
+  // Save to localStorage whenever formData changes
+  useEffect(() => {
+    localStorage.setItem('hello-computer-form-data', JSON.stringify(formData));
+  }, [formData]);
 
   return (
     <main className="mx-auto max-w-6xl space-y-8 px-4 py-10">
@@ -36,6 +59,11 @@ export default function Page() {
             initialData={metaVars} 
             formData={formData}
             setFormData={setFormData}
+            onReset={() => {
+              // Clear localStorage and reset to defaults
+              localStorage.removeItem('hello-computer-form-data');
+              setFormData(getInitialFormData());
+            }}
           />
         ) : null}
       </header>
