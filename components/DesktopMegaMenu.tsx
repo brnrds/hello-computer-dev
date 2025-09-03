@@ -36,6 +36,11 @@ type MegaChild = {
   href: string;
   description?: string;
   icon?: React.ReactNode;
+  subItems?: {
+    title: string;
+    href: string;
+    description?: string;
+  }[];
 };
 
 type MegaItem = {
@@ -184,9 +189,35 @@ export function DesktopMegaMenu({
                         
                         {/* Description - exactly like homepage */}
                         {child.description && (
-                          <p className="text-on-light-muted leading-relaxed">
+                          <p className="text-on-light-muted leading-relaxed mb-4">
                             {child.description}
                           </p>
+                        )}
+                        
+                        {/* Sub-items for AI Growth */}
+                        {child.subItems && child.subItems.length > 0 && (
+                          <div className="mt-4 space-y-2">
+                            {child.subItems.map((subItem) => (
+                              <a
+                                key={subItem.href}
+                                href={subItem.href}
+                                className={`block p-3 rounded-lg ${colors.bg} ${colors.hover} transition-colors text-left`}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  window.location.href = subItem.href;
+                                }}
+                              >
+                                <div className={`font-medium ${colors.text} text-sm`}>
+                                  {subItem.title}
+                                </div>
+                                {subItem.description && (
+                                  <div className="text-xs text-on-light-muted mt-1">
+                                    {subItem.description}
+                                  </div>
+                                )}
+                              </a>
+                            ))}
+                          </div>
                         )}
                       </div>
                       

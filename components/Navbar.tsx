@@ -22,24 +22,35 @@ export default function Navbar() {
   const pathname = usePathname();
   const { user } = useUser();
 
-  const isAdmin = user?.publicMetadata?.role === 'admin';
-  const isUser = user?.publicMetadata?.role === 'user';
-  const userTier = user?.publicMetadata?.tier ?? null;
+  // DISABLED FOR PREVIEW: Mock user state to show all menu items
+  const isAdmin = true; // user?.publicMetadata?.role === 'admin';
+  const isUser = true; // user?.publicMetadata?.role === 'user';
+  const userTier = 'free'; // user?.publicMetadata?.tier ?? null;
 
   const MENU = [
     {
       id: "services",
       label: "Services",
       children: [
-        { title: "AI Growth", href: "/services/ai-growth", description: "Acquisition, funnels, LTV." },
+        { 
+          title: "AI Growth", 
+          href: "/services/ai-growth", 
+          description: "Acquisition, funnels, LTV.",
+          subItems: [
+            { title: "Generators", href: "/generators", description: "AI-powered content generators" },
+            { title: "Lyra Prompt Optimizer", href: "/tools/lyra", description: "Transform prompts for better AI results" },
+          ]
+        },
         { title: "Creative Engines", href: "/services/creative-engines", description: "Content systems & tooling." },
         { title: "Technical Integration", href: "/services/technical-integration", description: "Data, automations, infra." },
       ],
     },
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
-    ...(isAdmin ? [{ id: "admin", label: "Admin" }] : []),
-    ...(isUser && userTier === 'free' ? [{ id: "generators", label: "Generators" }] : []),
+    // REMOVED FOR PREVIEW: Admin menu item
+    // ...(isAdmin ? [{ id: "admin", label: "Admin" }] : []),
+    // MOVED TO AI GROWTH: Generators menu item
+    // ...(isUser && userTier === 'free' ? [{ id: "generators", label: "Generators" }] : []),
   ];
 
   return (
@@ -67,6 +78,9 @@ export default function Navbar() {
 
           {/* Auth & CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            {/* REMOVED FOR PREVIEW: Login functionality */}
+            <TerminalCTA label="Let's go" href="/contact-waitlist" />
+            {/* 
             <SignedOut>
               <TerminalCTA label="Let's go" href="/contact-waitlist" />
               <SignInButton mode="modal">
@@ -78,6 +92,7 @@ export default function Navbar() {
             <SignedIn>
               <TerminalCTA label="logged in" href="/contact-waitlist" />
             </SignedIn>
+            */}
           </div>
 
           {/* Mobile menu button */}
@@ -105,14 +120,30 @@ export default function Navbar() {
               <div className="text-sm font-medium text-card-foreground mb-2">Services</div>
               <div className="space-y-1 ml-4">
                 {MENU.find(item => item.id === 'services')?.children?.map((service) => (
-                  <Link
-                    key={service.href}
-                    href={service.href}
-                    className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {service.title}
-                  </Link>
+                  <div key={service.href}>
+                    <Link
+                      href={service.href}
+                      className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {service.title}
+                    </Link>
+                    {/* AI Growth sub-items */}
+                    {service.title === "AI Growth" && service.subItems && (
+                      <div className="ml-4 space-y-1">
+                        {service.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            className="block px-3 py-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            • {subItem.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
@@ -133,6 +164,7 @@ export default function Navbar() {
               Contact
             </Link>
 
+            {/* MOVED TO AI GROWTH: Generators link now under AI Growth service
             {isUser && userTier === 'free' && (
               <Link
                 href="/generators"
@@ -142,7 +174,9 @@ export default function Navbar() {
                 Generators
               </Link>
             )}
+            */}
 
+            {/* REMOVED FOR PREVIEW: Admin link
             {isAdmin && (
               <Link
                 href="/admin"
@@ -152,8 +186,16 @@ export default function Navbar() {
                 Admin
               </Link>
             )}
+            */}
 
             <div className="px-3 pt-4 space-y-3">
+              {/* REMOVED FOR PREVIEW: Login functionality */}
+              <Button asChild className="w-full" size="sm">
+                <Link href="/contact-waitlist" onClick={() => setIsOpen(false)}>
+                  Get Priority Access
+                </Link>
+              </Button>
+              {/*
               <SignedOut>
                 <div className="flex space-x-2">
                   <SignInButton mode="modal">
@@ -184,6 +226,7 @@ export default function Navbar() {
                   </Button>
                 </div>
               </SignedIn>
+              */}
             </div>
           </div>
         </div>
