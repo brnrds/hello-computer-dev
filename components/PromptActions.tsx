@@ -38,13 +38,13 @@ export default function PromptActions({ prompt, formData, onOptimizePrompt }: Pr
   const hasVariables = prompt.includes("{") && prompt.includes("}");
 
   return (
-    <div className="flex items-center gap-2">
-      <Button onClick={copy} size="sm">
-        {copied ? "Copied!" : "Copy Prompt"}
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+      <Button onClick={copy} size="sm" className="text-xs sm:text-sm">
+        {copied ? "Copied!" : "Copy"}
       </Button>
       {onOptimizePrompt && (
-        <Button onClick={handleOptimize} size="sm" variant="outline">
-          🚀 Quick Optimize
+        <Button onClick={handleOptimize} size="sm" variant="outline" className="text-xs sm:text-sm">
+          🚀 Optimize
         </Button>
       )}
     </div>

@@ -34,13 +34,17 @@ export default function CategorySection({
   const promptData = buildPrompt ? substituteVariablesWithHighlighting(buildPrompt, formData) : null;
 
   return (
-    <section className="space-y-4 rounded-xl border bg-background p-6">
-      <header className="flex items-start justify-between gap-4">
+    <section className="space-y-3 sm:space-y-4 rounded-xl border bg-background p-4 sm:p-6">
+      <header className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div className="flex-1">
           <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
           <p className="mt-1 text-muted-foreground">{description}</p>
         </div>
-        {buildPrompt ? <PromptActions prompt={buildPrompt} formData={formData} onOptimizePrompt={onOptimizePrompt} /> : null}
+        {buildPrompt ? (
+          <div className="sm:shrink-0">
+            <PromptActions prompt={buildPrompt} formData={formData} onOptimizePrompt={onOptimizePrompt} />
+          </div>
+        ) : null}
       </header>
 
       {/* Display category-level prompt if it exists */}
@@ -54,7 +58,7 @@ export default function CategorySection({
         </div>
       )}
 
-      <div className="grid gap-3 md:grid-cols-2">
+      <div className="grid gap-2 sm:gap-3 sm:grid-cols-1 md:grid-cols-2">
         {services.map((s) => (
           <ServiceItem
             key={s.Name}
@@ -72,7 +76,7 @@ export default function CategorySection({
           <h3 className="mt-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             Example Deliverables
           </h3>
-          <ul className="mt-2 grid gap-2 md:grid-cols-2">
+          <ul className="mt-2 grid gap-2 sm:grid-cols-1 md:grid-cols-2">
             {deliverables.map((d) => (
               <li key={d.Name} className="rounded-md border p-3 text-sm">
                 <span className="font-medium">{d.Name}:</span>{" "}

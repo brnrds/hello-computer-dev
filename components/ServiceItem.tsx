@@ -20,12 +20,12 @@ export default function ServiceItem({ name, description, buildPrompt, formData, 
   const { highlightedHtml, plainText } = substituteVariablesWithHighlighting(buildPrompt, formData);
 
   return (
-    <article className="rounded-lg border bg-white/50 p-4 shadow-sm">
+    <article className="rounded-lg border bg-white/50 p-3 sm:p-4 shadow-sm">
       <h4 className="text-sm font-semibold tracking-tight">{name}</h4>
       <p className="mt-1 text-sm text-muted-foreground">{description}</p>
       
       {/* Display the actual prompt with highlighting */}
-      <div className="mt-3 p-3 bg-gray-50 border border-gray-200 rounded-md">
+      <div className="mt-2 sm:mt-3 p-2 sm:p-3 bg-gray-50 border border-gray-200 rounded-md">
         <div className="text-xs font-medium text-gray-700 mb-2">Prompt Template:</div>
         <div 
           className="text-xs text-gray-600 whitespace-pre-wrap font-mono leading-relaxed prompt-container"
@@ -33,7 +33,7 @@ export default function ServiceItem({ name, description, buildPrompt, formData, 
         />
       </div>
       
-      <div className="mt-3">
+      <div className="mt-2 sm:mt-3">
         <PromptActions prompt={buildPrompt} formData={formData} onOptimizePrompt={onOptimizePrompt} />
       </div>
     </article>

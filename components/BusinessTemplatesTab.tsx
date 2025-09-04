@@ -50,11 +50,11 @@ export default function BusinessTemplatesTab({ onOptimizePrompt }: BusinessTempl
   }, [formData]);
 
   return (
-    <div className="space-y-8">
-      <div className="bg-white rounded-lg p-6 shadow-sm">
-        <div className="space-y-2 mb-6">
-          <h2 className="text-2xl font-bold tracking-tight">Business Prompt Templates</h2>
-          <p className="text-muted-foreground">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="bg-white rounded-lg p-4 sm:p-6 shadow-sm">
+        <div className="space-y-2 mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Business Prompt Templates</h2>
+          <p className="text-sm sm:text-base text-muted-foreground">
             A human-friendly catalogue of proven business prompts. Copy any prompt with your
             variables (company, ICP, offer) automatically substituted in.
           </p>
@@ -74,7 +74,7 @@ export default function BusinessTemplatesTab({ onOptimizePrompt }: BusinessTempl
         ) : null}
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-6 sm:space-y-8">
         {Object.entries(categories).map(([title, cat]: any) => (
           <CategorySection
             key={title}

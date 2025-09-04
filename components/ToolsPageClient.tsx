@@ -40,13 +40,13 @@ export default function ToolsPageClient() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-4 sm:py-8">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">
             AI Prompt Tools
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
             Everything you need to create and optimize prompts for AI. Start with business templates 
             or enhance any prompt for better results.
           </p>
@@ -57,7 +57,7 @@ export default function ToolsPageClient() {
           <div className="flex bg-white rounded-lg border border-gray-200 overflow-hidden">
             <button
               onClick={() => handleTabSwitch('templates')}
-              className={`flex-1 px-6 py-4 font-medium transition-colors relative ${
+              className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 font-medium transition-colors relative ${
                 activeTab === 'templates'
                   ? 'text-green-600 bg-green-50'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -66,11 +66,11 @@ export default function ToolsPageClient() {
               {activeTab === 'templates' && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600"></div>
               )}
-              <div className="flex items-center justify-center gap-3">
-                <span className="text-xl">📋</span>
-                <div className="text-left">
-                  <div className="font-semibold">Business Templates</div>
-                  <div className="text-sm text-gray-500">Pre-built prompts for marketing & growth</div>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
+                <span className="text-lg sm:text-xl">📋</span>
+                <div className="text-center sm:text-left">
+                  <div className="font-semibold text-xs sm:text-base">Business Templates</div>
+                  <div className="text-xs text-gray-500 hidden sm:block">Pre-built prompts for marketing & growth</div>
                 </div>
               </div>
             </button>
@@ -79,7 +79,7 @@ export default function ToolsPageClient() {
             
             <button
               onClick={() => handleTabSwitch('optimizer')}
-              className={`flex-1 px-6 py-4 font-medium transition-colors relative ${
+              className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 font-medium transition-colors relative ${
                 activeTab === 'optimizer'
                   ? 'text-green-600 bg-green-50'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -88,11 +88,11 @@ export default function ToolsPageClient() {
               {activeTab === 'optimizer' && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600"></div>
               )}
-              <div className="flex items-center justify-center gap-3">
-                <span className="text-xl">🚀</span>
-                <div className="text-left">
-                  <div className="font-semibold">Prompt Optimizer</div>
-                  <div className="text-sm text-gray-500">Enhance any prompt for better AI results</div>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
+                <span className="text-lg sm:text-xl">🚀</span>
+                <div className="text-center sm:text-left">
+                  <div className="font-semibold text-xs sm:text-base">Prompt Optimizer</div>
+                  <div className="text-xs text-gray-500 hidden sm:block">Enhance any prompt for better AI results</div>
                 </div>
               </div>
             </button>

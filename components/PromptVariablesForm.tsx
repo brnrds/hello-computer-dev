@@ -52,8 +52,8 @@ export function PromptVariablesForm({ initialData, formData, setFormData, onRese
   };
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-6">
-      <div className="grid gap-4 md:grid-cols-2">
+    <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-4 sm:p-6">
+      <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="company" className="text-sm font-semibold text-gray-800">Company</Label>
           <Input
@@ -116,8 +116,8 @@ export function PromptVariablesForm({ initialData, formData, setFormData, onRese
         </div>
       </div>
 
-      <div className="flex items-center justify-between mb-1 mt-6">
-        <Button onClick={handleReset} variant="outline" size="sm" className="shrink-0">
+      <div className="flex items-center justify-between mb-1 mt-4 sm:mt-6">
+        <Button onClick={handleReset} variant="outline" size="sm" className="shrink-0 text-xs sm:text-sm">
           Reset to Defaults
         </Button>
       </div>
