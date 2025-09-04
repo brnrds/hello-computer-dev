@@ -29,6 +29,7 @@ export default function PromptOptimizerTab({
   const [result, setResult] = useState<OptimizationResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [hasUserChangedMode, setHasUserChangedMode] = useState(false);
 
   // Handle initial prompt from cross-tab data
   useEffect(() => {
@@ -41,6 +42,16 @@ export default function PromptOptimizerTab({
       }
     }
   }, [initialPrompt, onClearCrossTabData]);
+
+  // Auto-switch to suggested mode if user hasn't manually changed it
+  useEffect(() => {
+    if (roughPrompt && !hasUserChangedMode) {
+      const suggestedMode = PromptOptimizer.suggestMode(roughPrompt);
+      if (suggestedMode !== levelOfDetail) {
+        setLevelOfDetail(suggestedMode);
+      }
+    }
+  }, [roughPrompt, hasUserChangedMode, levelOfDetail]);
 
   const handleOptimize = async () => {
     if (!roughPrompt.trim()) return;
@@ -69,6 +80,12 @@ export default function PromptOptimizerTab({
     setRoughPrompt('');
     setResult(null);
     setShowWelcome(true);
+    setHasUserChangedMode(false); // Reset the manual change flag
+  };
+
+  const handleModeChange = (newMode: LevelOfDetail) => {
+    setLevelOfDetail(newMode);
+    setHasUserChangedMode(true); // Mark that user has manually changed the mode
   };
 
   const suggestedMode = roughPrompt ? PromptOptimizer.suggestMode(roughPrompt) : 'BASIC';
@@ -112,9 +129,14 @@ export default function PromptOptimizerTab({
                 onChange={(e) => setRoughPrompt(e.target.value)}
                 className="mt-1 min-h-[120px]"
               />
-              {roughPrompt && suggestedMode !== levelOfDetail && (
+              {roughPrompt && suggestedMode !== levelOfDetail && hasUserChangedMode && (
                 <p className="text-sm text-amber-600 mt-1">
                   💡 Suggested mode: {suggestedMode} (based on complexity)
+                </p>
+              )}
+              {roughPrompt && suggestedMode === levelOfDetail && !hasUserChangedMode && suggestedMode === 'DETAIL' && (
+                <p className="text-sm text-green-600 mt-1">
+                  ✨ Auto-switched to DETAIL mode for better results with complex prompts
                 </p>
               )}
             </div>
@@ -126,7 +148,7 @@ export default function PromptOptimizerTab({
               <select
                 id="levelOfDetail"
                 value={levelOfDetail}
-                onChange={(e) => setLevelOfDetail(e.target.value as LevelOfDetail)}
+                onChange={(e) => handleModeChange(e.target.value as LevelOfDetail)}
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="BASIC">BASIC - Quick optimization</option>

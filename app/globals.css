@@ -451,18 +451,18 @@
 
 /* Prompt highlighting styles */
 .prompt-container {
-  /* Base text is slightly muted to make highlights stand out */
-  opacity: 0.75;
+  /* Base text is more muted to make highlights stand out better */
+  opacity: 0.6;
 }
 
 .prompt-highlight {
-  /* Highlighted user data - more prominent */
-  @apply font-semibold text-blue-700 bg-blue-100 px-1 py-0.5 rounded;
+  /* Highlighted user data - uses green for better contrast on both gray and blue backgrounds */
+  @apply font-semibold text-green-800 bg-green-100 px-1.5 py-0.5 rounded-md border border-green-200;
   opacity: 1;
 }
 
 .prompt-placeholder {
-  /* Placeholder variables - subtle highlight */
-  @apply font-medium text-amber-600 bg-amber-50 px-1 py-0.5 rounded;
+  /* Placeholder variables - subtle highlight with better contrast */
+  @apply font-medium text-orange-700 bg-orange-50 px-1.5 py-0.5 rounded-md border border-orange-200;
   opacity: 1;
 }
