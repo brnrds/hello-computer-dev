@@ -281,27 +281,27 @@ export default function AboutPage() {
           </div>
 
           {/* Terminal Stats */}
-          <div className="mt-16 bg-black border border-green-400 rounded-xl p-8 shadow-2xl">
+          <div className="mt-16 bg-gray-900 border-2 border-green-400 rounded-xl p-8 shadow-2xl">
             <div className="text-center">
-              <div className="font-mono text-green-400 text-sm mb-4">
+              <div className="font-mono text-green-300 text-base mb-6 font-semibold">
                 $ analytics --company-metrics --year=2024
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
                 <div>
-                  <div className="text-3xl font-bold text-cyan-400 mb-1">50+</div>
-                  <div className="text-sm text-white font-mono">Clients Served</div>
+                  <div className="text-3xl font-bold text-cyan-300 mb-2">50+</div>
+                  <div className="text-sm text-gray-100 font-mono font-medium">Clients Served</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-pink-400 mb-1">£2.4M+</div>
-                  <div className="text-sm text-white font-mono">Revenue Generated</div>
+                  <div className="text-3xl font-bold text-pink-300 mb-2">£2.4M+</div>
+                  <div className="text-sm text-gray-100 font-mono font-medium">Revenue Generated</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-green-400 mb-1">98%</div>
-                  <div className="text-sm text-white font-mono">Client Satisfaction</div>
+                  <div className="text-3xl font-bold text-green-300 mb-2">98%</div>
+                  <div className="text-sm text-gray-100 font-mono font-medium">Client Satisfaction</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-yellow-400 mb-1">24/7</div>
-                  <div className="text-sm text-white font-mono">Support Available</div>
+                  <div className="text-3xl font-bold text-yellow-300 mb-2">24/7</div>
+                  <div className="text-sm text-gray-100 font-mono font-medium">Support Available</div>
                 </div>
               </div>
             </div>
@@ -334,13 +334,13 @@ export default function AboutPage() {
             </Button>
           </div>
 
-          <div className="mt-8 bg-black border border-green-400 rounded-lg p-4 max-w-md mx-auto shadow-2xl">
-            <div className="font-mono text-sm text-green-400 mb-1">
+          <div className="mt-8 bg-gray-900 border-2 border-green-400 rounded-lg p-6 max-w-md mx-auto shadow-2xl">
+            <div className="font-mono text-sm text-green-300 mb-2 font-semibold">
               $ status --team-availability
             </div>
-            <div className="text-white text-sm font-mono">
-              <span className="text-cyan-400">Ready to help</span>
-              <span className="animate-pulse text-green-400">|</span>
+            <div className="text-gray-100 text-base font-mono font-medium">
+              <span className="text-cyan-300 font-semibold">Ready to help</span>
+              <span className="animate-pulse text-green-300 ml-1">|</span>
             </div>
           </div>
         </div>

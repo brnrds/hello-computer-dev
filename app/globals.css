@@ -448,3 +448,21 @@
     color: var(--retro-orange-dark);
   }
 }
+
+/* Prompt highlighting styles */
+.prompt-container {
+  /* Base text is slightly muted to make highlights stand out */
+  opacity: 0.75;
+}
+
+.prompt-highlight {
+  /* Highlighted user data - more prominent */
+  @apply font-semibold text-blue-700 bg-blue-100 px-1 py-0.5 rounded;
+  opacity: 1;
+}
+
+.prompt-placeholder {
+  /* Placeholder variables - subtle highlight */
+  @apply font-medium text-amber-600 bg-amber-50 px-1 py-0.5 rounded;
+  opacity: 1;
+}
