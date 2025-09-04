@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import TerminalCTA from "@/components/TerminalCTA";
-import Image from "next/image";
 import { DesktopMegaMenu } from "@/components/DesktopMegaMenu";
 import {
   SignInButton,
@@ -59,14 +58,14 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="group">
-              <Image
-                src="/logo.png"
-                alt="Hello Computer"
-                width={200}
-                height={80}
-                className="h-16 w-auto transition-opacity group-hover:opacity-80"
-                priority
-              />
+              <div className="font-caprasimo leading-none">
+                <div className="text-4xl text-retro-orange-dark group-hover:text-retro-orange-bright transition-colors">
+                  Hello
+                </div>
+                <div className="text-4xl text-retro-orange-warm group-hover:text-retro-orange-bright transition-colors -mt-3">
+                  Computer
+                </div>
+              </div>
             </Link>
           </div>
 
