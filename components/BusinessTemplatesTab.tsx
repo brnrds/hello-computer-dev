@@ -83,7 +83,6 @@ export default function BusinessTemplatesTab({ onOptimizePrompt }: BusinessTempl
             buildPrompt={cat.BuildPrompt}
             services={cat.Services || []}
             deliverables={cat["Example Deliverables"] || []}
-            packages={cat.Packages}
             formData={formData}
             onOptimizePrompt={onOptimizePrompt}
           />

@@ -4,7 +4,7 @@ export const HELLO_COMPUTER_DATA: Offerings = {
   _meta: {
     version: "1.1",
     PromptVariables: {
-      company: "Client Company Ltd",
+      company: "Hello Computer Client",
       industry: "B2B SaaS for finance teams",
       offer: "Spend analytics platform",
       icp: "UK mid-market finance leaders (50–500 employees)",
