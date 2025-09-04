@@ -52,69 +52,76 @@ export function PromptVariablesForm({ initialData, formData, setFormData, onRese
   };
 
   return (
-    <div className="rounded-lg border bg-muted/40 p-4">
-      <div className="flex items-center justify-between mb-3">
-        <div className="font-medium">Prompt Variables</div>
-        <Button onClick={handleReset} variant="outline" size="sm">
-          Reset to Defaults
-        </Button>
-      </div>
-      <div className="grid gap-3 md:grid-cols-2">
+    <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-6">
+      <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="company">Company</Label>
+          <Label htmlFor="company" className="text-sm font-semibold text-gray-800">Company</Label>
           <Input
             id="company"
             value={formData.company}
             onChange={(e) => handleInputChange("company", e.target.value)}
             placeholder={initialData.company}
+            className="focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="industry">Industry</Label>
+          <Label htmlFor="industry" className="text-sm font-semibold text-gray-800">Industry</Label>
           <Input
             id="industry"
             value={formData.industry}
             onChange={(e) => handleInputChange("industry", e.target.value)}
             placeholder={initialData.industry}
+            className="focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="offer">Offer</Label>
+          <Label htmlFor="offer" className="text-sm font-semibold text-gray-800">Offer</Label>
           <Input
             id="offer"
             value={formData.offer}
             onChange={(e) => handleInputChange("offer", e.target.value)}
             placeholder={initialData.offer}
+            className="focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="icp">ICP</Label>
+          <Label htmlFor="icp" className="text-sm font-semibold text-gray-800">ICP (Ideal Customer Profile)</Label>
           <Input
             id="icp"
             value={formData.icp}
             onChange={(e) => handleInputChange("icp", e.target.value)}
             placeholder={initialData.icp}
+            className="focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="brand_tone">Tone</Label>
+          <Label htmlFor="brand_tone" className="text-sm font-semibold text-gray-800">Brand Tone</Label>
           <Input
             id="brand_tone"
             value={formData.brand_tone}
             onChange={(e) => handleInputChange("brand_tone", e.target.value)}
             placeholder={initialData.brand_tone}
+            className="focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="stack">Stack</Label>
+          <Label htmlFor="stack" className="text-sm font-semibold text-gray-800">Tech Stack</Label>
           <Input
             id="stack"
             value={formData.stack}
             onChange={(e) => handleInputChange("stack", e.target.value)}
             placeholder={initialData.stack?.join(", ")}
+            className="focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
       </div>
+
+      <div className="flex items-center justify-between mb-1 mt-6">
+        <Button onClick={handleReset} variant="outline" size="sm" className="shrink-0">
+          Reset to Defaults
+        </Button>
+      </div>
     </div>
+    
   );
 }

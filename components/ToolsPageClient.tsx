@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import BusinessTemplatesTab from '@/components/BusinessTemplatesTab';
 import PromptOptimizerTab from '@/components/PromptOptimizerTab';
@@ -13,12 +13,29 @@ export default function ToolsPageClient() {
     prompt?: string;
     fromTab?: TabType;
   }>({});
+  
+  // Ref to scroll to the tab content area
+  const tabContentRef = useRef<HTMLDivElement>(null);
 
   const handleTabSwitch = (tab: TabType, data?: { prompt: string }) => {
     if (data) {
       setCrossTabData({ prompt: data.prompt, fromTab: activeTab });
     }
     setActiveTab(tab);
+    
+    // Scroll to the tab content area when switching tabs with some breathing room above
+    setTimeout(() => {
+      if (tabContentRef.current) {
+        const rect = tabContentRef.current.getBoundingClientRect();
+        const offset = 100; // Add optimal breathing room above the content
+        const targetPosition = window.pageYOffset + rect.top - offset;
+        
+        window.scrollTo({
+          top: Math.max(0, targetPosition), // Don't scroll above the page
+          behavior: 'smooth'
+        });
+      }
+    }, 100); // Small delay to ensure tab content has rendered
   };
 
   return (
@@ -39,7 +56,7 @@ export default function ToolsPageClient() {
         <Card className="mb-6">
           <div className="flex border-b border-gray-200">
             <button
-              onClick={() => setActiveTab('templates')}
+              onClick={() => handleTabSwitch('templates')}
               className={`flex-1 px-6 py-4 text-center font-medium transition-colors ${
                 activeTab === 'templates'
                   ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
@@ -56,7 +73,7 @@ export default function ToolsPageClient() {
             </button>
             
             <button
-              onClick={() => setActiveTab('optimizer')}
+              onClick={() => handleTabSwitch('optimizer')}
               className={`flex-1 px-6 py-4 text-center font-medium transition-colors ${
                 activeTab === 'optimizer'
                   ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
@@ -75,7 +92,7 @@ export default function ToolsPageClient() {
         </Card>
 
         {/* Tab Content */}
-        <div className="tab-content">
+        <div ref={tabContentRef} className="tab-content">
           {activeTab === 'templates' && (
             <BusinessTemplatesTab 
               onOptimizePrompt={(prompt) => handleTabSwitch('optimizer', { prompt })}
