@@ -59,12 +59,12 @@ export default function ToolsPageClient() {
               onClick={() => handleTabSwitch('templates')}
               className={`flex-1 px-6 py-4 font-medium transition-colors relative ${
                 activeTab === 'templates'
-                  ? 'text-blue-600 bg-blue-50'
+                  ? 'text-green-600 bg-green-50'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
             >
               {activeTab === 'templates' && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600"></div>
               )}
               <div className="flex items-center justify-center gap-3">
                 <span className="text-xl">📋</span>
@@ -81,12 +81,12 @@ export default function ToolsPageClient() {
               onClick={() => handleTabSwitch('optimizer')}
               className={`flex-1 px-6 py-4 font-medium transition-colors relative ${
                 activeTab === 'optimizer'
-                  ? 'text-blue-600 bg-blue-50'
+                  ? 'text-green-600 bg-green-50'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
             >
               {activeTab === 'optimizer' && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600"></div>
               )}
               <div className="flex items-center justify-center gap-3">
                 <span className="text-xl">🚀</span>

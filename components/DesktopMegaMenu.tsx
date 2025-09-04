@@ -86,6 +86,12 @@ export function DesktopMegaMenu({
     }, delay);
   }
 
+  function closeMenu() {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    setOpen(false);
+    setActive(null);
+  }
+
   const cols = Math.max(
     1,
     Math.min(maxCols, activeItem?.children?.length ?? 0)
@@ -186,6 +192,7 @@ export function DesktopMegaMenu({
                         <Link 
                           href={child.href}
                           className={`block text-2xl font-semibold ${colors.text} mb-2 hover:underline`}
+                          onClick={closeMenu}
                         >
                           {child.title}
                         </Link>
@@ -205,6 +212,7 @@ export function DesktopMegaMenu({
                                 key={subItem.href}
                                 href={subItem.href}
                                 className={`block p-3 rounded-lg ${colors.bg} ${colors.hover} transition-colors text-left`}
+                                onClick={closeMenu}
                               >
                                 <div className={`font-medium ${colors.text} text-sm`}>
                                   {subItem.title}
