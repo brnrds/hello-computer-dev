@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -108,6 +109,21 @@ export function DesktopMegaMenu({
         {items.map(item => {
           const isActive = open && active === item.id && hasChildren(activeItem);
 
+          // For items without children (About, Contact), use Link for proper basepath handling
+          if (!hasChildren(item)) {
+            return (
+              <Link
+                key={item.id}
+                href={`/${item.id}`}
+                className={cn(
+                  "text-foreground hover:text-primary px-3 py-2 text-base transition-colors font-medium"
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          }
+
           return (
             <button
               key={item.id}
@@ -123,10 +139,9 @@ export function DesktopMegaMenu({
               onMouseEnter={() => (hasChildren(item) ? openFor(item.id) : openFor(null))}
               onFocus={() => (hasChildren(item) ? openFor(item.id) : openFor(null))}
               onClick={() => {
-                if (!hasChildren(item)) {
-                  window.location.href = `/${item.id}`;
-                } else if (item.id === 'services') {
+                if (item.id === 'services') {
                   // Allow navigation to services page even when it has children
+                  // Using window.location for now to maintain existing behavior
                   window.location.href = '/services';
                 }
               }}
