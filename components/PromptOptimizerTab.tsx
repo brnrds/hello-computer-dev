@@ -53,28 +53,37 @@ export default function PromptOptimizerTab({
     }
   }, [roughPrompt, hasUserChangedMode, levelOfDetail]);
 
-  const handleOptimize = async () => {
-    if (!roughPrompt.trim()) return;
-
-    setIsLoading(true);
-    try {
-      // Simulate processing time for better UX
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      const optimizationResult = PromptOptimizer.optimize({
-        roughPrompt,
-        levelOfDetail,
-        targetAIPlatform
-      });
-      
-      setResult(optimizationResult);
-      setShowWelcome(false);
-    } catch (error) {
-      console.error('Optimization error:', error);
-    } finally {
-      setIsLoading(false);
+  // Auto-optimize when inputs change (with debounce for prompt text)
+  useEffect(() => {
+    if (!roughPrompt.trim()) {
+      setResult(null);
+      setShowWelcome(true);
+      return;
     }
-  };
+
+    const timeoutId = setTimeout(async () => {
+      setIsLoading(true);
+      try {
+        // Simulate processing time for better UX
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        const optimizationResult = PromptOptimizer.optimize({
+          roughPrompt,
+          levelOfDetail,
+          targetAIPlatform
+        });
+        
+        setResult(optimizationResult);
+        setShowWelcome(false);
+      } catch (error) {
+        console.error('Optimization error:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }, 1000); // 1 second debounce for typing
+
+    return () => clearTimeout(timeoutId);
+  }, [roughPrompt, levelOfDetail, targetAIPlatform]);
 
   const handleReset = () => {
     setRoughPrompt('');
@@ -115,12 +124,11 @@ export default function PromptOptimizerTab({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Input Section */}
         <Card className="p-6">
-          <h2 className="text-xl font-semibold mb-4">Input Parameters</h2>
           
           <div className="space-y-4">
             <div>
               <Label htmlFor="roughPrompt" className="text-sm font-medium">
-                Rough Prompt *
+                Prompt *
               </Label>
               <Textarea
                 id="roughPrompt"
@@ -173,29 +181,28 @@ export default function PromptOptimizerTab({
               </select>
             </div>
 
-            <div className="flex gap-3 pt-2">
-              <Button 
-                onClick={handleOptimize}
-                disabled={!roughPrompt.trim() || isLoading}
-                className="flex-1"
-              >
-                {isLoading ? 'Optimizing...' : 'Optimize Prompt'}
-              </Button>
-              {result && (
-                <Button 
-                  onClick={handleReset}
-                  variant="outline"
-                >
-                  Reset
-                </Button>
-              )}
-            </div>
+            {isLoading && (
+              <div className="flex items-center justify-center gap-2 pt-4 text-sm text-gray-600">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
+                Optimizing...
+              </div>
+            )}
           </div>
         </Card>
 
         {/* Results Section */}
         <Card className="p-6">
-          <h2 className="text-xl font-semibold mb-4">Optimized Result</h2>
+          <div className="flex items-center justify-between mb-4">
+            {result && (
+              <Button 
+                onClick={handleReset}
+                variant="outline"
+                size="sm"
+              >
+                Clear
+              </Button>
+            )}
+          </div>
           
           {result ? (
             <div className="space-y-4">
@@ -275,8 +282,9 @@ export default function PromptOptimizerTab({
             </div>
           ) : (
             <div className="text-center text-gray-500 py-8">
-              <div className="text-4xl mb-2">🎯</div>
-              <p>Enter a rough prompt and click "Optimize Prompt" to see the magic happen!</p>
+              <div className="text-4xl mb-2">📝</div>
+              <p className="text-sm">Your optimized prompt will appear here as you type.</p>
+              <p className="text-xs mt-2 text-gray-400">The optimizer analyzes your input and provides structured, effective prompts for better AI results.</p>
             </div>
           )}
         </Card>

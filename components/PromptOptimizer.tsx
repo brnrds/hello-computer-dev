@@ -69,7 +69,7 @@ export default function PromptOptimizerComponent() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Input Section */}
         <Card className="p-6">
-          <h2 className="text-xl font-semibold mb-4">Input Parameters</h2>
+          <h2 className="text-xl font-semibold mb-4">Input</h2>
           
           <div className="space-y-4">
             <div>
@@ -144,7 +144,7 @@ export default function PromptOptimizerComponent() {
 
         {/* Results Section */}
         <Card className="p-6">
-          <h2 className="text-xl font-semibold mb-4">Optimized Result</h2>
+          <h2 className="text-xl font-semibold mb-4">Output</h2>
           
           {result ? (
             <div className="space-y-4">

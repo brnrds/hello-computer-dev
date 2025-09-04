@@ -53,43 +53,51 @@ export default function ToolsPageClient() {
         </div>
 
         {/* Tab Navigation */}
-        <Card className="mb-6">
-          <div className="flex border-b border-gray-200">
+        <div className="mb-6">
+          <div className="flex bg-white rounded-lg border border-gray-200 overflow-hidden">
             <button
               onClick={() => handleTabSwitch('templates')}
-              className={`flex-1 px-6 py-4 text-center font-medium transition-colors ${
+              className={`flex-1 px-6 py-4 font-medium transition-colors relative ${
                 activeTab === 'templates'
-                  ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
-                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
             >
-              <div className="flex items-center justify-center gap-2">
+              {activeTab === 'templates' && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+              )}
+              <div className="flex items-center justify-center gap-3">
                 <span className="text-xl">📋</span>
-                <div>
+                <div className="text-left">
                   <div className="font-semibold">Business Templates</div>
                   <div className="text-sm text-gray-500">Pre-built prompts for marketing & growth</div>
                 </div>
               </div>
             </button>
             
+            <div className="w-px bg-gray-200"></div>
+            
             <button
               onClick={() => handleTabSwitch('optimizer')}
-              className={`flex-1 px-6 py-4 text-center font-medium transition-colors ${
+              className={`flex-1 px-6 py-4 font-medium transition-colors relative ${
                 activeTab === 'optimizer'
-                  ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
-                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
             >
-              <div className="flex items-center justify-center gap-2">
+              {activeTab === 'optimizer' && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+              )}
+              <div className="flex items-center justify-center gap-3">
                 <span className="text-xl">🚀</span>
-                <div>
+                <div className="text-left">
                   <div className="font-semibold">Prompt Optimizer</div>
                   <div className="text-sm text-gray-500">Enhance any prompt for better AI results</div>
                 </div>
               </div>
             </button>
           </div>
-        </Card>
+        </div>
 
         {/* Tab Content */}
         <div ref={tabContentRef} className="tab-content">
