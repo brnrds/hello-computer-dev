@@ -1,4 +1,5 @@
 import { SignIn } from '@clerk/nextjs'
+import Link from 'next/link'
 
 export default function SignInPage() {
   return (
@@ -20,9 +21,9 @@ export default function SignInPage() {
         <div className="text-center mt-6">
           <p className="text-sm text-muted-foreground">
             Not approved yet? 
-            <a href="/waitlist" className="text-primary hover:underline ml-1">
+            <Link href="/waitlist" className="text-primary hover:underline ml-1">
               Join the waitlist
-            </a>
+            </Link>
           </p>
         </div>
       </div>

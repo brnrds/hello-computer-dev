@@ -1,15 +1,15 @@
-import LyraOptimizerComponent from '@/components/LyraOptimizer';
+import PromptOptimizerComponent from '@/components/PromptOptimizer';
 
-export default function LyraPage() {
+export default function PromptOptimizerPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <LyraOptimizerComponent />
+      <PromptOptimizerComponent />
     </div>
   );
 }
 
 export const metadata = {
-  title: 'Lyra AI Prompt Optimizer | Hello Computer',
+  title: 'AI Prompt Optimizer | Hello Computer',
   description: 'Transform vague requests into precision-crafted prompts that unlock AI\'s full potential across all platforms.',
 };
 

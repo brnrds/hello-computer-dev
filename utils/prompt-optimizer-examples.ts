@@ -1,80 +1,80 @@
 /**
- * Lyra Optimizer Usage Examples
- * Demonstrates how to use the Lyra prompt optimization tool
+ * PromptOptimizer Usage Examples
+ * Demonstrates how to use the PromptOptimizer tool
  */
 
-import { LyraOptimizer, type LyraInput } from './lyra-optimizer';
+import { PromptOptimizer, type PromptOptimizerInput } from './prompt-optimizer';
 
 // Example 1: Basic usage with a simple prompt
 export function basicExample() {
-  const input: LyraInput = {
+  const input: PromptOptimizerInput = {
     roughPrompt: "Write me a marketing email",
     levelOfDetail: "BASIC",
     targetAIPlatform: "ChatGPT"
   };
 
-  const result = LyraOptimizer.optimize(input);
+  const result = PromptOptimizer.optimize(input);
   console.log('Basic Example Result:');
-  console.log(LyraOptimizer.formatResult(result, false));
+  console.log(PromptOptimizer.formatResult(result, false));
   
   return result;
 }
 
 // Example 2: Detailed optimization for complex request
 export function detailExample() {
-  const input: LyraInput = {
+  const input: PromptOptimizerInput = {
     roughPrompt: "Help me create a comprehensive business plan for my tech startup that focuses on AI solutions",
     levelOfDetail: "DETAIL",
     targetAIPlatform: "Claude"
   };
 
-  const result = LyraOptimizer.optimize(input);
+  const result = PromptOptimizer.optimize(input);
   console.log('Detail Example Result:');
-  console.log(LyraOptimizer.formatResult(result, true));
+  console.log(PromptOptimizer.formatResult(result, true));
   
   return result;
 }
 
 // Example 3: Technical prompt optimization
 export function technicalExample() {
-  const input: LyraInput = {
+  const input: PromptOptimizerInput = {
     roughPrompt: "Debug my React component",
     levelOfDetail: "DETAIL",
     targetAIPlatform: "ChatGPT"
   };
 
-  const result = LyraOptimizer.optimize(input);
+  const result = PromptOptimizer.optimize(input);
   console.log('Technical Example Result:');
-  console.log(LyraOptimizer.formatResult(result, true));
+  console.log(PromptOptimizer.formatResult(result, true));
   
   return result;
 }
 
 // Example 4: Creative prompt optimization
 export function creativeExample() {
-  const input: LyraInput = {
+  const input: PromptOptimizerInput = {
     roughPrompt: "Write a story about space",
     levelOfDetail: "BASIC",
     targetAIPlatform: "Gemini"
   };
 
-  const result = LyraOptimizer.optimize(input);
+  const result = PromptOptimizer.optimize(input);
   console.log('Creative Example Result:');
-  console.log(LyraOptimizer.formatResult(result, false));
+  console.log(PromptOptimizer.formatResult(result, false));
   
   return result;
 }
 
 // Example 5: API usage example
 export async function apiExample() {
-  const requestBody: LyraInput = {
+  const requestBody: PromptOptimizerInput = {
     roughPrompt: "Explain machine learning to beginners",
     levelOfDetail: "DETAIL",
     targetAIPlatform: "Claude"
   };
 
   try {
-    const response = await fetch('/api/lyra', {
+    const response = await fetch('/api/prompt-optimizer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export async function apiExample() {
 
 // Utility function to run all examples
 export function runAllExamples() {
-  console.log('=== Lyra Optimizer Examples ===\n');
+  console.log('=== PromptOptimizer Examples ===\n');
   
   console.log('1. Basic Example:');
   basicExample();
@@ -118,6 +118,6 @@ export function runAllExamples() {
   console.log('\n');
   
   console.log('Welcome Message:');
-  console.log(LyraOptimizer.getWelcomeMessage());
+  console.log(PromptOptimizer.getWelcomeMessage());
 }
 

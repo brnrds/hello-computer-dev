@@ -156,7 +156,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-retro-gray py-6 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm terminal-text">
-            © 2024 Hello Computer. All rights reserved.
+            © {new Date().getFullYear()} Hello Computer. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm mt-2 sm:mt-0">
             Powered by AI. Guided by humans.

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -164,9 +165,8 @@ export function DesktopMegaMenu({
                   const icon = serviceIcons[serviceId];
                   
                   return (
-                    <motion.a
+                    <motion.div
                       key={child.href}
-                      href={child.href}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ 
@@ -174,7 +174,7 @@ export function DesktopMegaMenu({
                         delay: index * 0.1,
                         ease: [0.22, 1, 0.36, 1]
                       }}
-                      className={`group flex-1 rounded-xl bg-white shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden relative no-underline`}
+                      className={`group flex-1 rounded-xl bg-white shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden relative`}
                     >
                       <div className="p-8 text-center">
                         {/* Service Icon - exactly like homepage */}
@@ -182,10 +182,13 @@ export function DesktopMegaMenu({
                           {icon}
                         </div>
                         
-                        {/* Title - exactly like homepage */}
-                        <div className={`text-2xl font-semibold ${colors.text} mb-2`}>
+                        {/* Title - exactly like homepage - now clickable */}
+                        <Link 
+                          href={child.href}
+                          className={`block text-2xl font-semibold ${colors.text} mb-2 hover:underline`}
+                        >
                           {child.title}
-                        </div>
+                        </Link>
                         
                         {/* Description - exactly like homepage */}
                         {child.description && (
@@ -198,14 +201,10 @@ export function DesktopMegaMenu({
                         {child.subItems && child.subItems.length > 0 && (
                           <div className="mt-4 space-y-2">
                             {child.subItems.map((subItem) => (
-                              <a
+                              <Link
                                 key={subItem.href}
                                 href={subItem.href}
                                 className={`block p-3 rounded-lg ${colors.bg} ${colors.hover} transition-colors text-left`}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  window.location.href = subItem.href;
-                                }}
                               >
                                 <div className={`font-medium ${colors.text} text-sm`}>
                                   {subItem.title}
@@ -215,7 +214,7 @@ export function DesktopMegaMenu({
                                     {subItem.description}
                                   </div>
                                 )}
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         )}
@@ -223,7 +222,7 @@ export function DesktopMegaMenu({
                       
                       {/* Hover Effect Overlay - exactly like homepage */}
                       <div className={`absolute inset-0 ${colors.bg} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`}></div>
-                    </motion.a>
+                    </motion.div>
                   );
                 })}
               </div>

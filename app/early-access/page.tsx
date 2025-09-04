@@ -113,9 +113,9 @@ export default function EarlyAccessPage() {
           <div className="text-center mt-8">
             <p className="text-sm text-muted-foreground">
               Already approved? 
-              <a href="/sign-in" className="text-primary hover:underline ml-1">
+              <Link href="/sign-in" className="text-primary hover:underline ml-1">
                 Sign in here
-              </a>
+              </Link>
             </p>
           </div>
         </div>

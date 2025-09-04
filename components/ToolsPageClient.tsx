@@ -1,0 +1,96 @@
+'use client';
+
+import { useState } from 'react';
+import { Card } from '@/components/ui/card';
+import BusinessTemplatesTab from '@/components/BusinessTemplatesTab';
+import PromptOptimizerTab from '@/components/PromptOptimizerTab';
+
+type TabType = 'templates' | 'optimizer';
+
+export default function ToolsPageClient() {
+  const [activeTab, setActiveTab] = useState<TabType>('templates');
+  const [crossTabData, setCrossTabData] = useState<{
+    prompt?: string;
+    fromTab?: TabType;
+  }>({});
+
+  const handleTabSwitch = (tab: TabType, data?: { prompt: string }) => {
+    if (data) {
+      setCrossTabData({ prompt: data.prompt, fromTab: activeTab });
+    }
+    setActiveTab(tab);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            AI Prompt Tools
+          </h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Everything you need to create and optimize prompts for AI. Start with business templates 
+            or enhance any prompt for better results.
+          </p>
+        </div>
+
+        {/* Tab Navigation */}
+        <Card className="mb-6">
+          <div className="flex border-b border-gray-200">
+            <button
+              onClick={() => setActiveTab('templates')}
+              className={`flex-1 px-6 py-4 text-center font-medium transition-colors ${
+                activeTab === 'templates'
+                  ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
+                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-xl">📋</span>
+                <div>
+                  <div className="font-semibold">Business Templates</div>
+                  <div className="text-sm text-gray-500">Pre-built prompts for marketing & growth</div>
+                </div>
+              </div>
+            </button>
+            
+            <button
+              onClick={() => setActiveTab('optimizer')}
+              className={`flex-1 px-6 py-4 text-center font-medium transition-colors ${
+                activeTab === 'optimizer'
+                  ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
+                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-xl">🚀</span>
+                <div>
+                  <div className="font-semibold">Prompt Optimizer</div>
+                  <div className="text-sm text-gray-500">Enhance any prompt for better AI results</div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </Card>
+
+        {/* Tab Content */}
+        <div className="tab-content">
+          {activeTab === 'templates' && (
+            <BusinessTemplatesTab 
+              onOptimizePrompt={(prompt) => handleTabSwitch('optimizer', { prompt })}
+            />
+          )}
+          
+          {activeTab === 'optimizer' && (
+            <PromptOptimizerTab 
+              initialPrompt={crossTabData.prompt}
+              fromTab={crossTabData.fromTab}
+              onClearCrossTabData={() => setCrossTabData({})}
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

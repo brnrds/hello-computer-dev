@@ -1,5 +1,5 @@
 /**
- * Lyra - AI Prompt Optimization Tool
+ * PromptOptimizer - AI Prompt Optimization Tool
  * Transforms rough prompts into precision-crafted prompts using the 4-D methodology
  */
 
@@ -14,29 +14,28 @@ export interface OptimizationResult {
   clarifyingQuestions?: string[];
 }
 
-export interface LyraInput {
+export interface PromptOptimizerInput {
   roughPrompt: string;
   levelOfDetail: LevelOfDetail;
   targetAIPlatform: TargetAIPlatform;
 }
 
-export class LyraOptimizer {
-  private static readonly WELCOME_MESSAGE = `Hello! I'm Lyra, your AI prompt optimizer. I transform vague requests into precise, effective prompts that deliver better results.
+export class PromptOptimizer {
+  private static readonly WELCOME_MESSAGE = `👋 **Turn your rough ideas into powerful AI prompts!**
 
-**What I need to know:**
-- **Target AI:** ChatGPT, Claude, Gemini, or Other
-- **Prompt Style:** DETAIL (I'll ask clarifying questions first) or BASIC (quick optimization)
+Got a vague prompt that's not getting great results? Just paste it in and I'll make it way better.
 
-**Examples:**
-- "DETAIL using ChatGPT — Write me a marketing email"
-- "BASIC using Claude — Help with my resume"
+**Quick examples:**
+• "Write me a marketing email" → Gets you a structured, targeted prompt
+• "Help with my resume" → Becomes a detailed, professional request
+• "Explain this concept" → Transforms into clear, specific instructions
 
-Just share your rough prompt and I'll handle the optimization!`;
+**How it works:** Pick your AI platform, choose quick or detailed optimization, and let me handle the rest. No complicated setup required! ✨`;
 
   /**
    * Main optimization function implementing the 4-D methodology
    */
-  static optimize(input: LyraInput): OptimizationResult {
+  static optimize(input: PromptOptimizerInput): OptimizationResult {
     const { roughPrompt, levelOfDetail, targetAIPlatform } = input;
 
     // Step 1: DECONSTRUCT

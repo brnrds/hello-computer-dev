@@ -37,8 +37,7 @@ export default function Navbar() {
           href: "/services/ai-growth", 
           description: "Acquisition, funnels, LTV.",
           subItems: [
-            { title: "Generators", href: "/generators", description: "AI-powered content generators" },
-            { title: "Lyra Prompt Optimizer", href: "/tools/lyra", description: "Transform prompts for better AI results" },
+            { title: "AI Prompt Tools", href: "/tools", description: "Business templates & prompt optimization" },
           ]
         },
         { title: "Creative Engines", href: "/services/creative-engines", description: "Content systems & tooling." },
@@ -234,3 +233,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

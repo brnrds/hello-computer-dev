@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { LyraOptimizer, type LyraInput } from '@/utils/lyra-optimizer';
+import { PromptOptimizer, type PromptOptimizerInput } from '@/utils/prompt-optimizer';
 
 export async function POST(request: NextRequest) {
   try {
-    const body: LyraInput = await request.json();
+    const body: PromptOptimizerInput = await request.json();
     
     // Validate input
     if (!body.roughPrompt || !body.roughPrompt.trim()) {
@@ -28,23 +28,23 @@ export async function POST(request: NextRequest) {
     }
 
     // Optimize the prompt
-    const result = LyraOptimizer.optimize(body);
+    const result = PromptOptimizer.optimize(body);
     
     // Format the result for API response
     const isComplex = body.levelOfDetail === 'DETAIL' || body.roughPrompt.split(/\s+/).length > 15;
-    const formattedResult = LyraOptimizer.formatResult(result, isComplex);
+    const formattedResult = PromptOptimizer.formatResult(result, isComplex);
 
     return NextResponse.json({
       success: true,
       data: {
         ...result,
         formattedOutput: formattedResult,
-        suggestedMode: LyraOptimizer.suggestMode(body.roughPrompt)
+        suggestedMode: PromptOptimizer.suggestMode(body.roughPrompt)
       }
     });
 
   } catch (error) {
-    console.error('Lyra optimization error:', error);
+    console.error('Prompt optimization error:', error);
     return NextResponse.json(
       { error: 'Internal server error during prompt optimization' },
       { status: 500 }
@@ -54,10 +54,10 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   return NextResponse.json({
-    message: 'Lyra AI Prompt Optimizer API',
-    welcomeMessage: LyraOptimizer.getWelcomeMessage(),
+    message: 'AI Prompt Optimizer API',
+    welcomeMessage: PromptOptimizer.getWelcomeMessage(),
     usage: {
-      endpoint: '/api/lyra',
+      endpoint: '/api/prompt-optimizer',
       method: 'POST',
       parameters: {
         roughPrompt: 'string (required) - The rough prompt to optimize',

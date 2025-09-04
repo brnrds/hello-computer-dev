@@ -13,9 +13,10 @@ type Props = {
     brand_tone: string;
     stack: string;
   };
+  onOptimizePrompt?: (prompt: string) => void;
 };
 
-export default function PromptActions({ prompt, formData }: Props) {
+export default function PromptActions({ prompt, formData, onOptimizePrompt }: Props) {
   const [copied, setCopied] = useState(false);
 
   function substituteVariables(prompt: string, formData: any): string {
@@ -50,6 +51,13 @@ export default function PromptActions({ prompt, formData }: Props) {
     setTimeout(() => setCopied(false), 1500);
   }
 
+  const handleOptimize = () => {
+    if (onOptimizePrompt) {
+      const substitutedPrompt = substituteVariables(prompt, formData);
+      onOptimizePrompt(substitutedPrompt);
+    }
+  };
+
   const hasVariables = prompt.includes("{") && prompt.includes("}");
 
   return (
@@ -57,6 +65,11 @@ export default function PromptActions({ prompt, formData }: Props) {
       <Button onClick={copy} size="sm">
         {copied ? "Copied!" : "Copy Prompt"}
       </Button>
+      {onOptimizePrompt && (
+        <Button onClick={handleOptimize} size="sm" variant="outline">
+          🚀 Quick Optimize
+        </Button>
+      )}
     </div>
   );
 }

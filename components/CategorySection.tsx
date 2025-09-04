@@ -20,6 +20,7 @@ type Props = {
     brand_tone: string;
     stack: string;
   };
+  onOptimizePrompt?: (prompt: string) => void;
 };
 
 export default function CategorySection({
@@ -29,7 +30,8 @@ export default function CategorySection({
   services,
   deliverables,
   packages,
-  formData
+  formData,
+  onOptimizePrompt
 }: Props) {
   return (
     <section className="space-y-4 rounded-xl border bg-background p-6">
@@ -38,7 +40,7 @@ export default function CategorySection({
           <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
           <p className="mt-1 text-muted-foreground">{description}</p>
         </div>
-        {buildPrompt ? <PromptActions prompt={buildPrompt} formData={formData} /> : null}
+        {buildPrompt ? <PromptActions prompt={buildPrompt} formData={formData} onOptimizePrompt={onOptimizePrompt} /> : null}
       </header>
 
       <div className="grid gap-3 md:grid-cols-2">
@@ -49,6 +51,7 @@ export default function CategorySection({
             description={s.Description}
             buildPrompt={s.BuildPrompt}
             formData={formData}
+            onOptimizePrompt={onOptimizePrompt}
           />
         ))}
       </div>

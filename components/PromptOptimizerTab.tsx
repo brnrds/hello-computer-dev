@@ -1,24 +1,46 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { 
-  LyraOptimizer, 
+  PromptOptimizer, 
   type LevelOfDetail, 
   type TargetAIPlatform, 
   type OptimizationResult 
-} from '@/utils/lyra-optimizer';
+} from '@/utils/prompt-optimizer';
 
-export default function LyraOptimizerComponent() {
+interface PromptOptimizerTabProps {
+  initialPrompt?: string;
+  fromTab?: string;
+  onClearCrossTabData?: () => void;
+}
+
+export default function PromptOptimizerTab({ 
+  initialPrompt, 
+  fromTab, 
+  onClearCrossTabData 
+}: PromptOptimizerTabProps) {
   const [roughPrompt, setRoughPrompt] = useState('');
   const [levelOfDetail, setLevelOfDetail] = useState<LevelOfDetail>('BASIC');
   const [targetAIPlatform, setTargetAIPlatform] = useState<TargetAIPlatform>('ChatGPT');
   const [result, setResult] = useState<OptimizationResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
+
+  // Handle initial prompt from cross-tab data
+  useEffect(() => {
+    if (initialPrompt) {
+      setRoughPrompt(initialPrompt);
+      setShowWelcome(false);
+      // Clear the cross-tab data after using it
+      if (onClearCrossTabData) {
+        onClearCrossTabData();
+      }
+    }
+  }, [initialPrompt, onClearCrossTabData]);
 
   const handleOptimize = async () => {
     if (!roughPrompt.trim()) return;
@@ -28,7 +50,7 @@ export default function LyraOptimizerComponent() {
       // Simulate processing time for better UX
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      const optimizationResult = LyraOptimizer.optimize({
+      const optimizationResult = PromptOptimizer.optimize({
         roughPrompt,
         levelOfDetail,
         targetAIPlatform
@@ -49,19 +71,26 @@ export default function LyraOptimizerComponent() {
     setShowWelcome(true);
   };
 
-  const suggestedMode = roughPrompt ? LyraOptimizer.suggestMode(roughPrompt) : 'BASIC';
+  const suggestedMode = roughPrompt ? PromptOptimizer.suggestMode(roughPrompt) : 'BASIC';
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-6">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Lyra AI Prompt Optimizer</h1>
-        <p className="text-gray-600">Transform vague requests into precision-crafted prompts</p>
-      </div>
+    <div className="space-y-6">
+      {/* Cross-tab notification */}
+      {fromTab && initialPrompt && (
+        <Card className="p-4 bg-green-50 border-green-200">
+          <div className="flex items-center gap-2 text-green-800">
+            <span className="text-lg">✨</span>
+            <p className="text-sm">
+              <strong>Prompt imported from Business Templates!</strong> Ready to optimize for better AI results.
+            </p>
+          </div>
+        </Card>
+      )}
 
-      {showWelcome && (
+      {showWelcome && !initialPrompt && (
         <Card className="p-6 bg-blue-50 border-blue-200">
           <div className="whitespace-pre-line text-sm text-gray-700">
-            {LyraOptimizer.getWelcomeMessage()}
+            {PromptOptimizer.getWelcomeMessage()}
           </div>
         </Card>
       )}
@@ -248,4 +277,3 @@ export default function LyraOptimizerComponent() {
     </div>
   );
 }
-

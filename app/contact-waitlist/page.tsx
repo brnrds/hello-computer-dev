@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, ArrowRight, Clock, Users, Zap } from "lucide-react";
+import Link from "next/link";
 
 const contactWaitlistSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -129,10 +130,10 @@ export default function ContactWaitlistPage() {
 
             <div className="space-y-3">
               <Button asChild className="w-full">
-                <a href="/">
+                <Link href="/">
                   <ArrowRight className="w-4 h-4 mr-2" />
                   Return to Home
-                </a>
+                </Link>
               </Button>
               <p className="text-xs text-muted-foreground">
                 Questions? Email us at hello@hellocomputer.ai
