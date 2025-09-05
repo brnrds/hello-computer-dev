@@ -36,7 +36,7 @@ export default function Navbar() {
           href: "/services/ai-growth", 
           description: "Acquisition, funnels, LTV.",
           subItems: [
-            { title: "AI Prompt Tools", href: "/tools", description: "Business templates & prompt optimization" },
+            { title: "AI Prompt Tools", href: "/tools", description: "Business templates, optimization & project generation" },
           ]
         },
         { title: "Creative Engines", href: "/services/creative-engines", description: "Content systems & tooling." },

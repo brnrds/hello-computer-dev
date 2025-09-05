@@ -4,8 +4,9 @@ import { useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import BusinessTemplatesTab from '@/components/BusinessTemplatesTab';
 import PromptOptimizerTab from '@/components/PromptOptimizerTab';
+import CursorZipGenerator from '@/components/CursorZipGenerator';
 
-type TabType = 'templates' | 'optimizer';
+type TabType = 'templates' | 'optimizer' | 'cursor';
 
 export default function ToolsPageClient() {
   const [activeTab, setActiveTab] = useState<TabType>('templates');
@@ -47,8 +48,8 @@ export default function ToolsPageClient() {
             AI Prompt Tools
           </h1>
           <p className="text-sm sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
-            Everything you need to create and optimize prompts for AI. Start with business templates 
-            or enhance any prompt for better results.
+            Everything you need for AI prompt workflows. Create business templates, optimize prompts for better results, 
+            and generate Cursor-compliant project structures.
           </p>
         </div>
 
@@ -57,7 +58,7 @@ export default function ToolsPageClient() {
           <div className="flex bg-white rounded-lg border border-gray-200 overflow-hidden">
             <button
               onClick={() => handleTabSwitch('templates')}
-              className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 font-medium transition-colors relative ${
+              className={`flex-1 px-2 sm:px-4 py-3 sm:py-4 font-medium transition-colors relative ${
                 activeTab === 'templates'
                   ? 'text-green-600 bg-green-50'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -66,11 +67,11 @@ export default function ToolsPageClient() {
               {activeTab === 'templates' && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600"></div>
               )}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
                 <span className="text-lg sm:text-xl">📋</span>
                 <div className="text-center sm:text-left">
-                  <div className="font-semibold text-xs sm:text-base">Business Templates</div>
-                  <div className="text-xs text-gray-500 hidden sm:block">Pre-built prompts for marketing & growth</div>
+                  <div className="font-semibold text-xs sm:text-sm">Templates</div>
+                  <div className="text-xs text-gray-500 hidden lg:block">Pre-built prompts</div>
                 </div>
               </div>
             </button>
@@ -79,7 +80,7 @@ export default function ToolsPageClient() {
             
             <button
               onClick={() => handleTabSwitch('optimizer')}
-              className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 font-medium transition-colors relative ${
+              className={`flex-1 px-2 sm:px-4 py-3 sm:py-4 font-medium transition-colors relative ${
                 activeTab === 'optimizer'
                   ? 'text-green-600 bg-green-50'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -88,11 +89,33 @@ export default function ToolsPageClient() {
               {activeTab === 'optimizer' && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600"></div>
               )}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
                 <span className="text-lg sm:text-xl">🚀</span>
                 <div className="text-center sm:text-left">
-                  <div className="font-semibold text-xs sm:text-base">Prompt Optimizer</div>
-                  <div className="text-xs text-gray-500 hidden sm:block">Enhance any prompt for better AI results</div>
+                  <div className="font-semibold text-xs sm:text-sm">Optimizer</div>
+                  <div className="text-xs text-gray-500 hidden lg:block">Enhance prompts</div>
+                </div>
+              </div>
+            </button>
+
+            <div className="w-px bg-gray-200"></div>
+            
+            <button
+              onClick={() => handleTabSwitch('cursor')}
+              className={`flex-1 px-2 sm:px-4 py-3 sm:py-4 font-medium transition-colors relative ${
+                activeTab === 'cursor'
+                  ? 'text-green-600 bg-green-50'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+              }`}
+            >
+              {activeTab === 'cursor' && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600"></div>
+              )}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
+                <span className="text-lg sm:text-xl">📦</span>
+                <div className="text-center sm:text-left">
+                  <div className="font-semibold text-xs sm:text-sm">Project Gen</div>
+                  <div className="text-xs text-gray-500 hidden lg:block">Cursor projects</div>
                 </div>
               </div>
             </button>
@@ -113,6 +136,10 @@ export default function ToolsPageClient() {
               fromTab={crossTabData.fromTab}
               onClearCrossTabData={() => setCrossTabData({})}
             />
+          )}
+
+          {activeTab === 'cursor' && (
+            <CursorZipGenerator />
           )}
         </div>
       </div>
