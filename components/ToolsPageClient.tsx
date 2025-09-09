@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import BusinessTemplatesTab from '@/components/BusinessTemplatesTab';
 import PromptOptimizerTab from '@/components/PromptOptimizerTab';
-import CursorZipGenerator from '@/components/CursorZipGenerator';
+import ProjectBlueprintGenerator from '@/components/CursorZipGenerator';
 
 type TabType = 'templates' | 'optimizer' | 'cursor';
 
@@ -49,7 +49,7 @@ export default function ToolsPageClient() {
           </h1>
           <p className="text-sm sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
             Everything you need for AI prompt workflows. Create business templates, optimize prompts for better results, 
-            and generate Cursor-compliant project structures.
+            and generate stack-agnostic Project Blueprints for AI agents.
           </p>
         </div>
 
@@ -114,8 +114,8 @@ export default function ToolsPageClient() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
                 <span className="text-lg sm:text-xl">📦</span>
                 <div className="text-center sm:text-left">
-                  <div className="font-semibold text-xs sm:text-sm">Project Gen</div>
-                  <div className="text-xs text-gray-500 hidden lg:block">Cursor projects</div>
+                  <div className="font-semibold text-xs sm:text-sm">Blueprint</div>
+                  <div className="text-xs text-gray-500 hidden lg:block">AI project docs</div>
                 </div>
               </div>
             </button>
@@ -139,7 +139,7 @@ export default function ToolsPageClient() {
           )}
 
           {activeTab === 'cursor' && (
-            <CursorZipGenerator />
+            <ProjectBlueprintGenerator />
           )}
         </div>
       </div>

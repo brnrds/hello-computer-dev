@@ -1,0 +1,9 @@
+---
+description: general guidance on up-to-date cli incantations
+globs:
+alwaysApply: false
+---
+
+pnpm create next-app@latest <project-name> --ts --tailwind --no-eslint --app --turbopack --use-pnpm --no-src-dir --no-import-alias
+pnpm dlx shadcn@latest init
+pnpm dlx shadcn@latest add <component-name>
